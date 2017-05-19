@@ -80,7 +80,6 @@
             match_detail: $('#match_detail').val().trim(),
             session_detail: $('#session_comment').val().trim(),
             ball_status: $('#ball_status').text().trim(),
-
         };
         $.ajax({
             type: "post",
@@ -103,10 +102,8 @@
     $(window).scroll(function(){
         sessionStorage.scrollTop = $(this).scrollTop();
     });
-    //alert("scroll: "+sessionStorage.scrollTop);
     jQuery(function(){
         if(sessionStorage.scrollTop != ""){
-            //alert("scroll: "+sessionStorage.scrollTop);
             $(window).scrollTop(sessionStorage.scrollTop);
 
         }

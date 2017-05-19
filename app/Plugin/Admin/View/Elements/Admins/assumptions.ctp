@@ -409,6 +409,25 @@
         }
         var assumpUpdate = function() {};
 
+        function calculateRemainingRun(id){
+            var rem_runs = parseInt($('#assump-score2-hundreds-'+id).val()+$('#assump-score2-'+id).val())-parseInt($('#run-text').val());
+            console.log("Remaining Runs: "+rem_runs);
+            return rem_runs;
+        }
+
+        function calculateRemainingBall(id){
+            var rem_balls = 0;
+            var currOver = $('#assump-current_overs-'+id).val();
+            var ballArr =  currOver.split('.');
+            var currBalls = parseInt(ballArr[0])*6+(isNaN(ballArr[1]) ? 0 : parseInt(ballArr[1]));
+            var ballArr =  $('#assump-overs-'+id).val().split('.');
+            console.log(ballArr);
+            var totalBalls = parseInt(ballArr[0])*6+(isNaN(ballArr[1]) ? 0 : parseInt(ballArr[1]));
+            var rem_balls = totalBalls-currBalls;
+            console.log("Remaining Balls: "+rem_balls);
+            return rem_balls;
+        }
+
          function callAssumptionUpdate(callback, id) {
                 var data = {
                     id: id,
@@ -420,8 +439,9 @@
                     odd2: $('#assump-odd2-'+id).val(),
                     current_overs: $('#assump-current_overs-'+id).val(),
                     current_scores: $('#assump-current_scores-'+id).val(),
-                    favorite: $('#assump-fav-'+id).val()
-
+                    favorite: $('#assump-fav-'+id).val(),
+                    rem_balls: calculateRemainingBall(id),
+                    rem_runs: calculateRemainingRun(id)
                 };
                 NProgress.start();
                 $.ajax({
@@ -539,10 +559,6 @@
 
 
     $(function () {
-
-
-
-
 
         var newTarget = function() {};
         $('#target-edit').click(function () {

@@ -116,26 +116,20 @@
          $('#wide-no-ball').click(function () {
             $('#run-text').val(parseInt($('#run-text').val()) + 1);
             $('#box-run').html($('#run-text').val());
-            $('#history-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
-            $('#target-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
+            updateScoreOvers(<?= $lastAssump['id'] ?>);
 
             $('#ball_status').text($(this).text());
-            $("#overs-plus").click();
-            $("#overs-min").click();
-            // callAjax(UpdateScore);
+            callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);
+            callAjax(UpdateScore);
         });
 
         $('#no-ball').click(function () {
             $('#run-text').val(parseInt($('#run-text').val()) + 1);
             $('#box-run').html($('#run-text').val());
-            $('#history-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
-            $('#target-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
-
             $('#ball_status').text($(this).text());
-
-            $("#overs-plus").click();
-            $("#overs-min").click();
-            // callAjax(UpdateScore);
+            updateScoreOvers(<?= $lastAssump['id'] ?>);
+            callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);
+            callAjax(UpdateScore);
         });
 
 
@@ -155,16 +149,14 @@
             var wic = parseInt($('#box-wicket').html()) + 1;
             $('#box-wicket').html(wic);
             $('#wicket-text').val(wic);
-            $('#history-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
-            $('#target-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
+            updateScoreOvers(<?= $lastAssump['id'] ?>);
             $('#ball_status').text($(this).text());
             $("#overs-plus").click();
         });
         $('.fast-btns').on('click', function () {
             $('#run-text').val(parseInt($('#run-text').val()) + parseInt($(this).attr('run')));
             $('#box-run').html($('#run-text').val());
-            $('#history-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
-            $('#target-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
+            updateScoreOvers(<?= $lastAssump['id'] ?>);
             $('#ball_status').text($(this).text());
             $('#overs-plus').click();
         });
