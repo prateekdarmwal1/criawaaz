@@ -12,7 +12,11 @@
             <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active" id="itemScoreboard"><a href="#scoreboard">Score Board</a></li>
             <li class="ui-state-default ui-corner-top" id="itemUsersOnline"><a href="#usersonline" >User Online</a></li>
             <li class="ui-state-default ui-corner-top" id="itemHistory"><a href="#history">History</a></li>
-            <!-- <buttton id="match" class="mws-button green" style="float:right;margin-top:4px;margin-right: 13px;" data-toggle="modal" data-target="#matchForm">New Match</button> -->
+            <label>&nbsp;&nbsp;&nbsp;Match&nbsp;Interrupt&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" class="mws-textinput readonly" id="match-interrupt-text" value="" style="width:150px;">&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" class="mws-button red" id="match-interrupt-edit" value="Edit" style="margin-top: -0px;">
+            &nbsp;&nbsp;
+
             <input id="mws-form-dialog-mdl-btn" class="mws-button green" value="New Match" type="button" style="float:right">
         </ul>
         <div id="scoreboard" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" style="padding: .8em">
@@ -76,7 +80,6 @@
             overs: $('#box-over').html(),
             runs: $('#box-run').html(),
             team: $('#box-team').html(),
-            playing_team: $('#box-playing-team').html(),
             match_detail: $('#match_detail').val().trim(),
             session_detail: $('#session_comment').val().trim(),
             ball_status: $('#ball_status').text().trim(),
@@ -126,6 +129,17 @@
     });
     $("select").focusout(function(){
         $(this).css({"border":"1px solid #c5c5c5"});
+    });
+    $('#match-interrupt-edit').on('click', function () {
+        if ($("#match-interrupt-text").is(':disabled')) {
+            $("#match-interrupt-text").attr('disabled', false);
+            $(this).val('Submit');
+        } else {
+            $("#match-interrupt-text").attr('disabled', true);
+            $(this).val('Edit');
+            $('#ball_status').text($("#match-interrupt-text").text());
+            callAjax(UpdateWickets);
+        }
     });
 
 </script>

@@ -109,7 +109,6 @@ class ScoresController  extends UserAppController {
 
                         $data["Inning".$result[$i]["Score"]["inning"]]['innings_over'] = ($result[$i]["Score"]["innings_over"]) ? 'true' : 'false';
                         $data["Inning".$result[$i]["Score"]["inning"]]['team'] = $result[$i]["Score"]["team"];
-                        $data["Inning".$result[$i]["Score"]["inning"]]['playing_team'] = $result[$i]["Score"]["playing_team"];
                         $data["Inning".$result[$i]["Score"]["inning"]]['runs'] = $result[$i]["Score"]["runs"];
                         $data["Inning".$result[$i]["Score"]["inning"]]['winner_team'] = $result[$i]["Score"]["winner_team"];
                         $data["Inning".$result[$i]["Score"]["inning"]]['overs'] = $result[$i]["Score"]["overs"];

@@ -302,15 +302,6 @@
                 </div>
             </div>
             <div class="mws-form-block grid_1">
-                <label>Team</label>
-                <div class="mws-form-item large">
-                    <input type="text" id="target-teams" class="target-overs mws-textinput readonly" value="<?= $score["Score"]["playing_team"] ?>">
-                    <?php
-                    //echo $this->Form->select('teams', $teamsSelect, ["empty" => "Team", "value" => $inning, "id" => "target-teams-select", "class" => "target-teams-select mws-textinput"]);
-                    ?>
-                </div>
-            </div>
-            <div class="mws-form-block grid_1">
                 <label>Overs</label>
                 <div class="mws-form-item large">
                     <input type="text" id="target-overs" class="target-overs mws-textinput readonly" value="<?= $score["Score"]["overs"] ?>">

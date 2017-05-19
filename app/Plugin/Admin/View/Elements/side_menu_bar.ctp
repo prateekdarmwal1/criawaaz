@@ -1,14 +1,5 @@
 <div id="mws-sidebar">
 
-	<!-- Searchbox -->
-<!--	<div id="mws-searchbox" class="mws-inset">-->
-<!--		<form action="typography.html">-->
-<!--			<input type="text" class="mws-search-input" />-->
-<!--			<input type="submit" class="mws-search-submit" />-->
-<!--		</form>-->
-<!--	</div>-->
-
-	<!-- Main Navigation -->
 	<div id="mws-navigation">
 		<ul>
 			<li><?=$this->Html->link("Dashboard",["controller"=>"Admins","action"=>"index"],["class"=>"mws-i-24 i-home"])?></li>
@@ -52,20 +43,6 @@
         </span>
     </a>
 
-
-
-    <a class="mws-report" href="#">
-        <!-- Statistic Icon (edit to change icon) -->
-        <span class="mws-report-icon mws-ic ic-group"></span>
-
-        <!-- Statistic Content -->
-        <span class="mws-report-content">
-            <span class="mws-report-title">Playing <br> Team</span>
-            <span class="mws-report-value" style="font-size:1.3em" id="box-playing-team"><?= $score["Score"]["playing_team"] ?></span>
-            <span class="mws-report-value" style="font-size:1.3em;display:none;" id="box-current-innings"><?= $score["Score"]["innings_over"] ?></span>
-        </span>
-    </a>
-
 		<!-- change password -->
     <a class="mws-report" onclick="showModal('changePasswordModal')">
         <!-- Statistic Icon (edit to change icon) -->
@@ -74,7 +51,7 @@
         <!-- Statistic Content -->
         <span class="mws-report-content">
             <span class="mws-report-title" style="font-size:14px;font-weight:bold">Change<br> password</span>
-            <!-- <span class="mws-report-value" style="font-size:12px">Click to<br /> change</span> -->
+            <span class="mws-report-value" style="font-size:1.3em;display:none;" id="box-current-innings"><?= $score["Score"]["innings_over"] ?></span>
         </span>
     </a>
     <!-- app version -->
