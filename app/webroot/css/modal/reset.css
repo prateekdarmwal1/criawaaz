@@ -1,0 +1,29 @@
+/* = FONT STACKS
+----------------------------------------------------------------------------------------------------------------------*/
+body    { font-family: Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif } /* "wide" sans serif */
+a, blockquote, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, img, input, label, li, ol, p, pre, span, table, ul {
+
+    position: relative
+
+}
+
+
+/* = CLEARFIX
+----------------------------------------------------------------------------------------------------------------------*/
+.clearfix:before,
+.clearfix:after     { content: "\0020"; display: block; height: 0; visibility: hidden; font-size: 0 }
+.clearfix:after     { clear: both }
+.clearfix           { *zoom: 1 } /* for IE only */
+
+/* = TABLES
+----------------------------------------------------------------------------------------------------------------------*/
+table {
+
+    border-collapse: collapse;
+    border-spacing: 0;
+    /* tables still need cellspacing="0" */
+
+}
+
+/* = LISTS
+----------------------------------------------------------------------------------------------------------------------*/

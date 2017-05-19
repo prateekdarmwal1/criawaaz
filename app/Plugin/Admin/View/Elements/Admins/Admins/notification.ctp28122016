@@ -1,0 +1,54 @@
+<div class="mws-report-container clearfix"  style="margin-bottom: 0px;">
+    <a class="mws-report" href="#" style="">
+        <span class="mws-report-icon mws-ic ic-walk"></span>
+
+        <!-- Statistic Content -->
+        <span class="mws-report-content">
+            <span class="mws-report-title">Total Runs</span>
+            <span class="mws-report-value" id="box-run"><?= $score["Score"]["runs"] ?></span>
+        </span>
+    </a>
+    <a class="mws-report" href="#" style="">
+        <!-- Statistic Icon (edit to change icon) -->
+        <span class="mws-report-icon mws-ic ic-user-delete"></span>
+
+        <!-- Statistic Content -->
+        <span class="mws-report-content">
+            <span class="mws-report-title">Wicket</span>
+            <span class="mws-report-value" id="box-wicket"><?= $score["Score"]["wickets"] ?></span>
+        </span>
+    </a>
+    <a class="mws-report" href="#" style="">
+        <span class="mws-report-icon mws-ic ic-sport-tennis"></span>
+
+        <!-- Statistic Content -->
+        <span class="mws-report-content">
+            <span class="mws-report-title">Overs</span>
+            <span class="mws-report-value" id="box-over"><?= $score["Score"]["overs"] ?></span>
+        </span>
+    </a>
+    <a class="mws-report" href="#">
+        <!-- Statistic Icon (edit to change icon) -->
+        <span class="mws-report-icon mws-ic ic-group-link"></span>
+
+        <!-- Statistic Content -->
+        <span class="mws-report-content">
+            <span class="mws-report-title">Team</span>
+            <span class="mws-report-value" style="font-size:1.3em" id="box-team"><?= $score["Score"]["team"] ?></span>
+        </span>
+    </a>
+
+
+
+    <a class="mws-report" href="#">
+        <!-- Statistic Icon (edit to change icon) -->
+        <span class="mws-report-icon mws-ic ic-group"></span>
+
+        <!-- Statistic Content -->
+        <span class="mws-report-content">
+            <span class="mws-report-title">Playing Team</span>
+            <span class="mws-report-value" style="font-size:1.3em" id="box-playing-team"><?= $score["Score"]["playing_team"] ?></span>
+            <span class="mws-report-value" style="font-size:1.3em;display:none;" id="box-current-innings"><?= $score["Score"]["innings_over"] ?></span>
+        </span>
+    </a>
+</div>

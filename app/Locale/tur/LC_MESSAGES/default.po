@@ -1,0 +1,204 @@
+msgid "Current Password"
+msgstr "Mevcut Şifre"
+
+msgid "Register"
+msgstr "Kayıt"
+
+msgid "Login"
+msgstr "Giriş"
+
+msgid "HOME"
+msgstr "ANA SAYFA"
+
+msgid "BUSINESS DIRECTORY"
+msgstr "İŞ REHBERİ"
+
+msgid "EVENT PLANNERS"
+msgstr "OLAY PLANLAMACILARI"
+
+msgid "EVENT CALENDAR"
+msgstr "ETKİNLİK TAKVİMİ"
+
+msgid "Select Category"
+msgstr "Kategori Seçiniz"
+
+msgid "Which event are you planning?"
+msgstr "Hangi olay planlıyorsun?"
+
+msgid "Postal Code"
+msgstr "Posta Kodu"
+
+msgid "Any Distance"
+msgstr "herhangi Uzaklık"
+
+msgid "Choose Keyword"
+msgstr "Kelimeler seç"
+
+msgid "Eventus Program"
+msgstr "Eventus Programı"
+
+msgid "About Eventus"
+msgstr "Hakkında Eventus"
+
+msgid "Stay Connected On"
+msgstr "Stay On Bağlı"
+
+msgid "Contacts"
+msgstr "İletişim"
+
+msgid "Contact Us"
+msgstr "İletişim Bize"
+
+msgid "Occasion"
+msgstr "Amaçlar"
+
+msgid "Date of Event"
+msgstr "Olay tarihi"
+
+msgid "Title"
+msgstr "Başlık"
+
+msgid "Number of Guests"
+msgstr "Yolcu Sayısı"
+
+msgid "City"
+msgstr "Şehir"
+
+msgid "Enter Postcode"
+msgstr "Posta kodu girin"
+
+msgid "What you should create offers our providers?"
+msgstr "Ne oluşturmanız gerekir bizim sağlayıcıları sunar?"
+
+msgid "If you have Planner account please check"
+msgstr "Eğer planlayıcısı hesabınız varsa kontrol edin"
+
+msgid "Gender"
+msgstr "Cinsiyet"
+
+msgid "First Name"
+msgstr "İsim"
+
+msgid "Last Name"
+msgstr "Son İsim"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Password"
+msgstr "Şifre"
+
+msgid "Detail"
+msgstr "Detay"
+
+msgid "Forgot password"
+msgstr "Şifremi unuttum"
+
+msgid "Sign up"
+msgstr "Kaydolun"
+
+msgid "Register Now For Member"
+msgstr "Şimdi için Üye Ol"
+
+msgid "NEXT"
+msgstr "SONRAKİ"
+
+msgid "COMPANY"
+msgstr "ŞİRKET"
+
+msgid "CONTACT"
+msgstr "İLETİŞİM"
+
+msgid "GENDER"
+msgstr "CİNSİYET"
+
+msgid "OWNER"
+msgstr "SAHİBİ"
+
+msgid "MOBILE"
+msgstr "MOBİL"
+
+msgid "PHONE"
+msgstr "TELEFON"
+
+msgid "ADDRESS"
+msgstr "ADRES"
+
+msgid "STREET"
+msgstr "SOKAK"
+
+msgid "POSTAL CODE"
+msgstr "POSTA KODU"
+
+msgid "CONFIRM PASSWORD"
+msgstr "ŞİFRE ONAY"
+
+msgid "CITY"
+msgstr "ŞEHİR"
+
+msgid "STATE"
+msgstr "DEVLET"
+
+msgid "VERIFICATION"
+msgstr "DOĞRULAMA"
+
+msgid "What you should create offers our providers?"
+msgstr "Ne oluşturmanız gerekir bizim sağlayıcıları sunar?"
+
+msgid "Brief Profile"
+msgstr "kısa Profili"
+
+msgid "Search Start"
+msgstr "Arama Başlangıç"
+
+msgid "PASSWORD"
+msgstr "ŞİFRE"
+
+msgid "References"
+msgstr "Referanslar"
+
+msgid "Forgot password"
+msgstr "Şifremi unuttum"
+
+msgid "User Type"
+msgstr "Kullanıcı Türü"
+
+msgid "Send"
+msgstr "gönder"
+
+msgid "Subject"
+msgstr "Konu"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "Contact Person"
+msgstr "Muhatap"
+
+msgid "Services"
+msgstr "Hizmetler"
+
+msgid "Location"
+msgstr "Yer"
+
+msgid "Contact Number"
+msgstr "İletişim Numarası"
+
+msgid "Web"
+msgstr "Web"
+
+msgid "Images"
+msgstr "Görüntüler"
+
+msgid "Comments"
+msgstr "Yorumlar"
+
+msgid "Leave a comment"
+msgstr "Yorum bırak"
+
+msgid "Rating"
+msgstr "Değerlendirme"
+
+msgid "Make sure you enter the (*) required information where indicated. HTML code is not allowed."
+msgstr "Belirtilen nereye (*) gerekli bilgileri girdiğinizden emin olun. HTML kodu izin verilmez."
+

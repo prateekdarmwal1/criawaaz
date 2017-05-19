@@ -1,0 +1,557 @@
+msgid "BUSINESS DIRECTORY"
+msgstr "Branchenbuch"
+
+msgid "EVENT PLANNERS"
+msgstr "Veranstaltungsplaner"
+
+msgid   "Change Password"
+msgstr "تغيير كلمة المرور"
+
+msgid "Current Password"
+msgstr "كلمة المرور الحالية"
+
+msgid "New Password"
+msgstr "كلمة مرور جديدة"
+
+msgid "Confirm New Password"
+msgstr "تأكيد كلمة المرور الجديدة"
+
+msgid "Update"
+msgstr "تحديث"
+
+msgid "Community"
+msgstr "مجتمع"
+
+msgid "Quiz Application"
+msgstr "مسابقة التطبيق"
+
+msgid "Sign In - Quiz"
+msgstr "تسجيل الدخول - مسابقة"
+
+msgid "User Name"
+msgstr "اسم المستخدم"
+
+msgid "Password"
+msgstr "كلمة السر"
+
+msgid "Sign In"
+msgstr "تسجيل الدخول"
+
+msgid "Forget Password? Click here!!!"
+msgstr "نسيت كلمة المرور؟ انقر هنا!"
+
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+msgid "Forgot Password"
+msgstr "نسيت كلمة المرور"
+
+msgid "Send"
+msgstr "إرسال"
+
+msgid "Users Detail"
+msgstr "تفاصيل المستخدمين"
+
+msgid "Role"
+msgstr "دور"
+
+msgid "Active/Inactive & Delete"
+msgstr "نشط / غير نشط وحذف"
+
+msgid "Users Not Found.."
+msgstr "لم يتم العثور على المستخدمين .."
+
+msgid "Edit Your Profile Here"
+msgstr "تحرير ملفك الشخصي اضغط هنا"
+
+msgid "First Name"
+msgstr "الاسم الأول"
+
+msgid "Last Name"
+msgstr "اسم العائلة"
+
+msgid "Country"
+msgstr "بلد"
+
+msgid "State"
+msgstr "دولة"
+
+msgid "City"
+msgstr "مدينة"
+
+msgid "Address"
+msgstr "عنوان"
+
+msgid "Membership"
+msgstr "عضوية"
+
+msgid "Upgrade Membership"
+msgstr "ترقية العضوية"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Registration In - Quiz"
+msgstr "التسجيل في - مسابقة"
+
+msgid "Parent Email Address"
+msgstr "عنوان البريد الإلكتروني الرئيسي"
+
+msgid "Confirm Password"
+msgstr "تأكيد كلمة المرور"
+
+msgid "Register"
+msgstr "تسجيل"
+
+msgid "Select State"
+msgstr "حدد الدولة"
+
+msgid "Select Membership"
+msgstr "حدد العضوية"
+
+msgid "Select Country"
+msgstr "حدد البلد"
+
+msgid "Child Details"
+msgstr "طفل تفاصيل"
+
+msgid "View Report Of The Child"
+msgstr "عرض تقرير الطفل"
+
+msgid "Reports Of The Child"
+msgstr "تقارير الطفل"
+
+msgid "User Detail"
+msgstr "تفاصيل المستخدم"
+
+msgid "Edit Profile"
+msgstr "تحرير الملف الشخصي"
+
+msgid "Practise Quiz"
+msgstr "تدرب مسابقة"
+
+msgid "Exercise Quiz"
+msgstr "ممارسة اختبار"
+
+msgid "Practice Question"
+msgstr "أسئلة الممارسة"
+
+msgid "Exercise Question"
+msgstr "سؤال ممارسة"
+
+msgid "Logout"
+msgstr "خروج"
+
+msgid "Welcome"
+msgstr "ترحيب"
+
+msgid "File Upload"
+msgstr "تحميل الملف"
+
+msgid "New File Upload"
+msgstr "تحميل ملف جديد"
+
+msgid "View File Details"
+msgstr "عرض تفاصيل الملف"
+
+msgid "All Customer Details"
+msgstr "جميع العملاء تفاصيل"
+
+msgid "Create Teacher"
+msgstr "إنشاء معلم"
+
+msgid "Admin Detail"
+msgstr "مشرف التفاصيل"
+
+msgid "Student"
+msgstr "طالب"
+
+msgid "Please enter email address"
+msgstr "يرجى إدخال عنوان البريد الإلكتروني"
+
+msgid "Please enter valid email address"
+msgstr "من فضلك ادخل عنوان البريد الإلكتروني صالحة"
+
+msgid "Entered email id and password does not match"
+msgstr "دخلت معرف البريد الإلكتروني وكلمة المرور لا يطابق"
+
+msgid "Your account is not active."
+msgstr "حسابك غير نشط."
+
+msgid "Please enter current password."
+msgstr "من فضلك ادخل كلمة المرور الحالية."
+
+msgid "Please enter valid current password."
+msgstr "من فضلك ادخل كلمة المرور الحالية صالحة."
+
+msgid "Please Enter Password"
+msgstr "الرجاء إدخال كلمة المرور"
+
+msgid "Minimum 6 characters long"
+msgstr "6 أحرف طويلة الحد الأدنى"
+
+msgid "Please enter confirm password"
+msgstr "من فضلك ادخل كلمة السر تأكيد"
+
+msgid "Password & confirm password do not match."
+msgstr "كلمة المرور وتأكيد كلمة المرور غير متطابقين."
+
+msgid "Please select file."
+msgstr "الرجاء اختيار الملف."
+
+msgid "File Format is not valid. File Should have these extension xls, csv, xlsx"
+msgstr "تنسيق الملف غير صالح. وإذا لديك هذه الملفات XLS التمديد، CSV، XLSX"
+
+msgid "Please enter last name properly (Only Alphanumeric value)"
+msgstr "من فضلك ادخل اسم العائلة بشكل صحيح (قيمة أبجدية رقمية فقط)"
+
+msgid "Please enter first name properly (Only Alphanumeric value)"
+msgstr "من فضلك ادخل الاسم الأول بشكل صحيح (قيمة أبجدية رقمية فقط)"
+
+msgid "Please enter User name properly (Only Alphanumeric value)"
+msgstr "من فضلك ادخل اسم المستخدم بشكل صحيح (قيمة أبجدية رقمية فقط)"
+
+msgid "already exists. Please enter another User name."
+msgstr "موجود مسبقا. من فضلك ادخل اسم مستخدم آخر."
+
+msgid "Please enter address"
+msgstr "يرجى إدخال عنوان"
+
+msgid "Please enter City"
+msgstr "من فضلك ادخل المدينة"
+
+msgid "City should be Alphabet."
+msgstr "يجب أن تكون مدينة الأبجدية."
+
+msgid "Already exists. Please enter another Email address"
+msgstr "موجود مسبقا. من فضلك ادخل عنوان بريد إلكتروني آخر"
+
+msgid "Please enter Parent email address"
+msgstr "من فضلك ادخل عنوان البريد الإلكتروني الرئيسي"
+
+msgid "Please Select State."
+msgstr "الرجاء تحديد الدولة."
+
+msgid "Please Select Country."
+msgstr "يرجى اختيار الدولة."
+
+msgid "Please Select Membership."
+msgstr "الرجاء تحديد العضوية."
+
+msgid "Please enter email address or user name"
+msgstr "يرجى إدخال عنوان البريد الإلكتروني أو اسم المستخدم"
+
+msgid "Entered email address or user name and password does not match"
+msgstr "أدخل عنوان البريد الإلكتروني أو اسم المستخدم وكلمة المرور لا يطابق"
+
+msgid "Your Account is Not activated, Firstly verify Your email address."
+msgstr "لم يتم تنشيط الحساب الخاص بك، تحقق أولا عنوان بريدك الإلكتروني."
+
+msgid "Your Account is Not Verified By The Admin."
+msgstr "لم يتم التحقق من حسابك من قبل الإدارة."
+
+msgid "An email has been sent to your provided email id. Please check it and activate your account."
+msgstr "لقد تم إرسال رسالة إلكترونية إلى البريد الإلكتروني الخاص بك معرف المقدمة. يرجى التحقق من ذلك وتفعيل حسابك."
+
+msgid "This access code and email address do not match."
+msgstr "هذا رمز الدخول وعنوان البريد الإلكتروني غير متطابقة."
+
+msgid "Welcome to the Login Process. Your account is verified now. Please Login to Continue."
+msgstr "مرحبا بكم في عملية تسجيل الدخول. يتم التحقق حسابك الآن. الرجاء تسجيل الدخول للمتابعة."
+
+msgid "New password is sent to your email address."
+msgstr "يتم إرسال كلمة المرور الجديدة إلى عنوان البريد الإلكتروني الخاص بك."
+
+msgid "Password have been updated successfully."
+msgstr "تم تحديث كلمة السر بنجاح."
+
+msgid "Profile changed successfully."
+msgstr "تغيير الملف بنجاح."
+
+msgid "Teacher Is Successfully Created."
+msgstr "هل بنجاح إنشاء المعلمين."
+
+msgid "Your new password is sent to your email address."
+msgstr "يتم إرسال كلمة المرور الجديدة إلى عنوان البريد الإلكتروني الخاص بك."
+
+msgid "You Have Null Value in Name. Please correct this."
+msgstr "لديك قيمة فارغة في الاسم. يرجى تصحيح هذا."
+
+msgid "You Have Null Value in Description. Please correct this."
+msgstr "لديك قيمة فارغة في الوصف. يرجى تصحيح هذا."
+
+msgid "You Have Null Value in Answer One. Please correct this."
+msgstr "لديك قيمة فارغة في جواب واحد. يرجى تصحيح هذا."
+
+msgid "You Have Null Value in Answer Two. Please correct this."
+msgstr "لديك قيمة فارغة في جواب الثانية. يرجى تصحيح هذا."
+
+msgid "You Have Null Value in Answer Three. Please correct this."
+msgstr "لديك قيمة فارغة في جواب ثلاثة. يرجى تصحيح هذا."
+
+msgid "You Have Null Value in Answer Four. Please correct this."
+msgstr "لديك قيمة فارغة في الإجابة على أربعة. يرجى تصحيح هذا."
+
+msgid "You Have Null Value in Correct Answer. Please correct this."
+msgstr "لديك قيمة فارغة في الإجابة الصحيحة. يرجى تصحيح هذا."
+
+msgid "You Have Null Value in Difficulty. Please correct this."
+msgstr "لديك صعوبة في قيمة فارغة. يرجى تصحيح هذا."
+
+msgid "You Have Null Value in Question Category. Please correct this."
+msgstr "لديك قيمة فارغة في الفئة السؤال. يرجى تصحيح هذا."
+
+msgid "You Have Null Value in Question Level. Please correct this."
+msgstr "لديك قيمة فارغة في مستوى الاسئلة. يرجى تصحيح هذا."
+
+msgid "You Have Null Value in Quiz Type. Please correct this."
+msgstr "لديك قيمة فارغة في مسابقة نوع. يرجى تصحيح هذا."
+
+msgid "You Have Null Value in Test Bank. Please correct this."
+msgstr "لديك قيمة فارغة في الضفة اختبار. يرجى تصحيح هذا."
+
+msgid "You Have Incorrect Syntax near Difficulty. Please correct this :-"
+msgstr "لديك صعوبة في بناء جملة غير صحيح بالقرب. يرجى تصحيح هذا: -"
+
+msgid "You Have Incorrect Syntax near Category. Please correct this:-"
+msgstr "لديك بناء جملة غير صحيح بالقرب الفئة. يرجى تصحيح هذا: -"
+
+msgid "You Have Incorrect Syntax near Test Bank. Please correct this:-"
+msgstr "لديك بناء جملة غير صحيح بالقرب من بنك اختبار. يرجى تصحيح هذا: -"
+
+msgid "You Have Incorrect Syntax near Question Level. Please correct this:-"
+msgstr "لديك بناء جملة غير صحيح بالقرب من مستوى أسئلة. يرجى تصحيح هذا: -"
+
+msgid "You Have Incorrect Syntax near Quiz Type. Please correct this:-"
+msgstr "لديك بناء جملة غير صحيح بالقرب نوع المسابقة. يرجى تصحيح هذا: -"
+
+msgid "Rows are Successfully added"
+msgstr "تضاف الصفوف بنجاح"
+
+msgid "Rows are Not added Due to syntax problem."
+msgstr "لا تضاف الصفوف بسبب مشكلة بناء الجملة."
+
+msgid "Your Header Information is not correct. Please Correct and Again Try."
+msgstr "معلوماتك رأس غير صحيح. الرجاء تصحيح وإعادة المحاولة."
+
+msgid "Select Country"
+msgstr "حدد البلد"
+
+msgid "Please Click Here For Sign In."
+msgstr "انقر هنا للحصول تسجيل الدخول."
+
+msgid "Please select any of the Community."
+msgstr "الرجاء اختيار أي من الجماعة."
+
+msgid "Create Exercise"
+msgstr "إنشاء التمرين"
+
+msgid "View Exercise"
+msgstr "عرض التمرين"
+
+msgid "View Questions"
+msgstr "عرض الأسئلة"
+
+msgid "Assigned Exercise"
+msgstr "تعيين التمرين"
+
+msgid "Assign Exercise"
+msgstr "تعيين التمرين"
+
+msgid "View Report of User"
+msgstr "عرض تقرير المستخدم"
+
+msgid "is completed by"
+msgstr "والانتهاء من"
+
+msgid "Exercise Name"
+msgstr "ممارسة الاسم"
+
+msgid "Exercise Time In Minute"
+msgstr "ممارسة الوقت في الدقيقة"
+
+msgid "Question Level"
+msgstr "السؤال المستوى"
+
+msgid "Description"
+msgstr "وصف"
+
+msgid "Select Question Level"
+msgstr "اختر المستوى سؤال"
+
+msgid "Test Bank"
+msgstr "اختبار بنك"
+
+msgid "Time"
+msgstr "مرة"
+
+msgid "Community"
+msgstr "مجتمع"
+
+msgid "Add Question"
+msgstr "إضافة سؤال"
+
+msgid "Your Exercise Detail :"
+msgstr "تفاصيل التمرين الخاص بك:"
+
+msgid "Add Your Question In Exercise Here :"
+msgstr "إضافة سؤالك في التمرين هنا:"
+
+msgid "Added Detail"
+msgstr "وأضاف التفاصيل"
+
+msgid "Name"
+msgstr "اسم"
+
+msgid "Category"
+msgstr "فئة"
+
+msgid "Level"
+msgstr "مستوى"
+
+msgid "Difficulty"
+msgstr "صعوبة"
+
+msgid "Not Added"
+msgstr "لا أضيف"
+
+msgid "Exercise"
+msgstr "ممارسة"
+
+msgid "Assigned Date"
+msgstr "تعيين تاريخ"
+
+msgid "Assign Exercise to the Student"
+msgstr "تعيين التمرين للطالب"
+
+msgid "Select Student"
+msgstr "حدد الطلاب"
+
+msgid "Child Report :"
+msgstr "الطفل تقرير:"
+
+msgid "Child Name"
+msgstr "اسم الطفل"
+
+msgid "Attended Date"
+msgstr "حضر تاريخ"
+
+msgid "Score"
+msgstr "نتيجة"
+
+msgid "Exercise is not Attended by Child."
+msgstr "ولم يحضر ممارسة الطفل."
+
+msgid "Reports Not Found.."
+msgstr "لم يتم العثور على التقارير .."
+
+msgid "Teacher"
+msgstr "معلم"
+
+msgid "Is Not Visited"
+msgstr "ولم يزر"
+
+msgid "Visited"
+msgstr "زار"
+
+msgid "Quiz Completed"
+msgstr "مسابقة المكتملة"
+
+msgid "Quiz Start"
+msgstr "مسابقة ابدأ"
+
+msgid "Exercises"
+msgstr "تمارين"
+
+msgid "Attended"
+msgstr "حضر"
+
+msgid "Please Don't Refresh Your Page, If you refresh or reload then your Quiz start from beginning."
+msgstr "يرجى عدم تحديث الصفحة الخاصة بك، إذا كنت تحديث أو إعادة تحميل ثم اختبار الخاص بك يبدأ من البداية."
+
+msgid "If You Reload This Page Your Quiz is again Start, with new questions, Do You Want to continue?"
+msgstr "إذا كنت تحديث هذه الصفحة مسابقة الخاص بك هو البدء من جديد، مع أسئلة جديدة، هل تريد المتابعة؟"
+
+msgid "Exercise is assigned but not completed"
+msgstr "يتم تعيين ممارسة ولكن لم تكتمل"
+
+msgid "Exercise is completed"
+msgstr "اكتمال العملية"
+
+msgid "Parent"
+msgstr "أصل"
+
+msgid "Registration"
+msgstr "تسجيل"
+
+msgid "Login"
+msgstr "دخول"
+
+msgid "Home"
+msgstr "منزل"
+
+msgid "About Us"
+msgstr "حول بنا"
+
+msgid "Contact Us"
+msgstr "الاتصال بنا"
+
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+msgid "Terms and Conditions"
+msgstr "الشروط والأحكام"
+
+msgid "Take Test"
+msgstr "تأخذ تجارب"
+
+msgid "Free Practise Sets"
+msgstr "مجموعات تدرب مجانا"
+
+msgid "Please enter User name"
+msgstr "من فضلك ادخل اسم المستخدم"
+
+msgid "Please enter password"
+msgstr "من فضلك ادخل كلمة السر"
+
+msgid "Please enter first name"
+msgstr "من فضلك ادخل كلمة السر..."
+
+msgid "Please enter last name"
+msgstr "من فضلك ادخل اسم العائلة"
+
+msgid "Entered user name and password does not match"
+msgstr "دخلت اسم المستخدم وكلمة المرور لا يطابق"
+
+msgid "Add Practises"
+msgstr "إضافة الممارسات"
+
+msgid "User Score Board"
+msgstr "نقاط المستخدم المجلس"
+
+msgid "Score Board"
+msgstr "نقاط المجلس"
+
+msgid "Create Practise"
+msgstr "إنشاء تدرب
+
+msgid "View Practise"
+msgstr "View Practise"
+
+msgid "Practices"
+msgstr "الممارسات"
+
+msgid "Is Mandatory"
+msgstr "إلزامي"
+
+msgid "Solve Practise"
+msgstr "حل تدرب"
+
+msgid "Choose File"
+msgstr "اختر ملف"
+
+msgid "upload"
+msgstr "تحميل"

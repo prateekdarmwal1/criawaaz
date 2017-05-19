@@ -1,0 +1,163 @@
+<section id="content">
+	<div class="row">
+		<div class="col-lg-12">
+			<h4>Get in touch with us by filling <strong>contact form below</strong></h4>
+			<?=$this->Form->create("Contact",["class"=>'validateform',"id"=>"contactform",'enctype'=>"multipart/form-data"])?>
+			<div id="sendmessage">
+				Your message has been sent. Thank you!
+			</div>
+			<div class="row">
+				<div class="col-lg-7 field">
+					<div class="row">
+						<div class="col-lg-3"><label>* Username</label></div>
+						<div class="col-lg-9 field">
+							<?=$this->Form->text("company_name",["placeholder"=>"* Company Name","required"=>true, "data-rule"=>"maxlen:4","data-msg"=>"Please enter at least 3 chars"])?>
+							<div class="validation"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-3"><label>* Password</label></div>
+						<div class="col-lg-9 field">
+							<?=$this->Form->text("first_name",["placeholder"=>"* Enter your first name","required"=>true, "data-rule"=>"maxlen:4","data-msg"=>"Please enter at least 4 chars"])?>
+							<div class="validation"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-lg-12 margintop10 field">
+
+				<div class="validation"></div>
+				<p>
+					<button class="btn btn-theme margintop10 pull-left" type="submit">Submit message</button>
+
+				</p>
+			</div>
+		</div>
+		<?=$this->Form->end();?>
+	</div>
+
+</section>
+<script>
+	$(document).ready(function(){
+		$('#auto_company_name').autocomplete({
+			minLength:0,
+			source:<?=json_encode($country)?>,
+			select:function(event,ui){
+				event.preventDefault();
+				$("#country_id").val(ui.item.value);
+				$("#auto_company_name").val(ui.item.label);
+			},
+			focus:function(event,ui){
+				event.preventDefault();
+				$("#country_id").val(ui.item.value);
+				$("#auto_company_name").val(ui.item.label);
+			}
+		}).blur(function(){
+			autocompleteValidation($(this));
+		});
+		$('form.validateform').submit(function(){
+
+			var f = $(this).find('.field'),
+					ferror = false,
+					emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+			f.children('input').each(function(){ // run all inputs
+				var i = $(this); // current input
+				var rule = i.attr('data-rule');
+				if( rule != undefined ){
+					var ierror=false; // error flag for current input
+					var pos = rule.indexOf( ':', 0 );
+					if( pos >= 0 ){
+						var exp = rule.substr( pos+1, rule.length );
+						rule = rule.substr(0, pos);
+					}else{
+						rule = rule.substr( pos+1, rule.length );
+					}
+
+					switch( rule ){
+						case 'required':
+							if( i.val()=='' ){ ferror=ierror=true; }
+							break;
+
+						case 'maxlen':
+							if( i.val().length<parseInt(exp) ){ ferror=ierror=true; }
+							break;
+
+						case 'email':
+							if( !emailExp.test(i.val()) ){ ferror=ierror=true; }
+							break;
+
+
+						case 'checked':
+							if( !i.attr('checked') ){ ferror=ierror=true; }
+							break;
+
+						case 'regexp':
+							exp = new RegExp(exp);
+							if( !exp.test(i.val()) ){ ferror=ierror=true; }
+							break;
+					}
+					i.next('.validation').html( ( ierror ? (i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input') : '' ) ).show('blind');
+				}
+			});
+			f.children('textarea').each(function(){ // run all inputs
+
+				var i = $(this); // current input
+				var rule = i.attr('data-rule');
+
+				if( rule != undefined ){
+					var ierror=false; // error flag for current input
+					var pos = rule.indexOf( ':', 0 );
+					if( pos >= 0 ){
+						var exp = rule.substr( pos+1, rule.length );
+						rule = rule.substr(0, pos);
+					}else{
+						rule = rule.substr( pos+1, rule.length );
+					}
+
+					switch( rule ){
+						case 'required':
+							if( i.val()=='' ){ ferror=ierror=true; }
+							break;
+
+						case 'maxlen':
+							if( i.val().length<parseInt(exp) ){ ferror=ierror=true; }
+							break;
+					}
+					i.next('.validation').html( ( ierror ? (i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input') : '' ) ).show('blind');
+				}
+			});
+			if( ferror ) return false;
+			else var str = $(this).serialize();
+			NProgress.start();
+			$.ajax({
+				type: "POST",
+				dataType:"json",
+				url: '<?=Router::url(["controller"=>"ContactPersons","action"=>"save_contact"])?>',
+				data: new FormData(this),
+				contentType: false,
+				processData: false,
+				success: function(response){
+					NProgress.done();
+					if(response.status){
+						$.Zebra_Dialog('<strong>Congratulations!</strong>,You have successfully contact with us, Please be patient, we will give you our feedback. Thanks', {
+							'type':     'information',
+							'title':    'Congratulations!',
+							'buttons':  ['Ok'],
+							'onClose':  function(caption) {
+								window.location.href = '<?=Router::url(["controller"=>"homes"]);?>';
+								//alert((caption != '' ? '"' + caption + '"' : 'nothing') + ' was clicked');
+
+							}
+						});
+					}
+				},
+				error: function(x){NProgress.done();alert(x.responseText);}
+			});
+			return false;
+		});
+
+
+	});
+</script>

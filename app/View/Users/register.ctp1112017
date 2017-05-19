@@ -1,0 +1,194 @@
+<section id="content">
+	<div class="row">
+		<div class="col-lg-12">
+			<h4>Registration</h4>
+			<?=$this->Form->create("User",["class"=>'validateform',"id"=>"contactform",'enctype'=>"multipart/form-data"])?>
+			<div id="sendmessage">
+
+			</div>
+			<div class="row">
+				<div class="col-lg-12 field">
+					<div class="row">
+						<div class="col-lg-2"><label>* Company</label></div>
+						<div class="col-lg-4 field">
+							<?=$this->Form->text("company_name",["placeholder"=>"* Company Name","required"=>true, "data-rule"=>"maxlen:4","data-msg"=>"Please enter at least 3 chars"])?>
+							<div class="validation"></div>
+						</div>
+						<div class="col-lg-2"><label>* Country</label></div>
+						<div class="col-lg-4 field">
+							<?=$this->Form->hidden("country_id",["id"=>"country_id"])?>
+							<?=$this->Form->text("auto_country_name",["id"=>"auto_company_name", "label"=>false,"placeholder"=>"* Enter your Country", "data-rule"=>"maxlen:2","data-msg"=>"Please enter at least 2 chars"])?>
+							<div class="validation"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-2"><label>* First Name</label></div>
+						<div class="col-lg-4 field">
+							<?=$this->Form->text("first_name",["placeholder"=>"* Enter your first name","required"=>true, "data-rule"=>"maxlen:4","data-msg"=>"Please enter at least 4 chars"])?>
+							<div class="validation"></div>
+						</div>
+						<div class="col-lg-2"><label>Last Name</label></div>
+						<div class="col-lg-4 field">
+							<?=$this->Form->text("last_name",["placeholder"=>"Enter your last name"])?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-2"><label>* Phone</label></div>
+						<div class="col-lg-4 field">
+							<?=$this->Form->input("phone",["label"=>false,"type"=>"text","placeholder"=>"* Enter your Phone","required"=>true, "data-rule"=>"email:9","data-msg"=>"Please enter at least 9 chars"])?>
+							<div class="validation"></div>
+						</div>
+						<div class="col-lg-2"><label>Mobile</label></div>
+						<div class="col-lg-4 field">
+							<?=$this->Form->input("mobile",["label"=>false,"type"=>"number","placeholder"=>"* Enter your Mobile"])?>
+							<div class="validation"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-2"><label>* Street</label></div>
+						<div class="col-lg-4 field">
+							<?=$this->Form->input("street",["label"=>false,"type"=>"text","placeholder"=>"* Enter your Street","required"=>true, "data-rule"=>"email:9","data-msg"=>"Please enter at least 9 chars"])?>
+							<div class="validation"></div>
+						</div>
+						<div class="col-lg-2"><label>Fax</label></div>
+						<div class="col-lg-4 field">
+							<?=$this->Form->input("fax",["label"=>false,"type"=>"number","placeholder"=>" Enter your Fax"])?>
+							<div class="validation"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-2"><label>* Postal Code</label></div>
+						<div class="col-lg-4 field">
+							<?=$this->Form->input("postal_code",["label"=>false,"type"=>"text","placeholder"=>"* Enter your postal code","required"=>true, "data-rule"=>"email:9","data-msg"=>"Please enter at least 9 chars"])?>
+							<div class="validation"></div>
+						</div>
+						<div class="col-lg-2"><label>* Email</label></div>
+						<div class="col-lg-4 field">
+							<?=$this->Form->input("email",["label"=>false,"type"=>"email","placeholder"=>"* Enter your Email","required"=>true, "data-rule"=>"maxlen:10","data-msg"=>"Please enter at least 10 digits"])?>
+							<div class="validation"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-2"><label>* Palace</label></div>
+						<div class="col-lg-4 field">
+							<?=$this->Form->input("palace",["label"=>false,"type"=>"text","placeholder"=>"* Enter your Palace","required"=>true, "data-rule"=>"email:9","data-msg"=>"Please enter at least 9 chars"])?>
+							<div class="validation"></div>
+						</div>
+						<div class="col-lg-2"><label>Homepage</label></div>
+						<div class="col-lg-4 field">
+							<?=$this->Form->input("homepage",["label"=>false,"type"=>"text","placeholder"=>" Enter your homepage"])?>
+							<div class="validation"></div>
+						</div>
+					</div>
+					<span class="pull-right margintop20">* Please fill all required form field, thanks!</span>
+				</div>
+			</div>
+
+			<div class="col-lg-12 margintop10 field">
+
+				<div class="validation"></div>
+				<p>
+					<button class="btn btn-theme margintop10 pull-left" type="submit">Submit message</button>
+
+				</p>
+			</div>
+		</div>
+		<?=$this->Form->end();?>
+	</div>
+
+</section>
+<script>
+	$(document).ready(function(){
+		$('#auto_company_name').autocomplete({
+			minLength:0,
+			source:<?=json_encode($country)?>,
+			select:function(event,ui){
+				event.preventDefault();
+				$("#country_id").val(ui.item.value);
+				$("#auto_company_name").val(ui.item.label);
+			},
+			focus:function(event,ui){
+				event.preventDefault();
+				$("#country_id").val(ui.item.value);
+				$("#auto_company_name").val(ui.item.label);
+			}
+		}).blur(function(){
+			autocompleteValidation($(this));
+		});
+		$('form.validateform').submit(function(){
+
+			var f = $(this).find('.field'),
+					ferror = false,
+					emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+			f.children('input').each(function(){ // run all inputs
+				var i = $(this); // current input
+				var rule = i.attr('data-rule');
+				if( rule != undefined ){
+					var ierror=false; // error flag for current input
+					var pos = rule.indexOf( ':', 0 );
+					if( pos >= 0 ){
+						var exp = rule.substr( pos+1, rule.length );
+						rule = rule.substr(0, pos);
+					}else{
+						rule = rule.substr( pos+1, rule.length );
+					}
+
+					switch( rule ){
+						case 'required':
+							if( i.val()=='' ){ ferror=ierror=true; }
+							break;
+
+						case 'maxlen':
+							if( i.val().length<parseInt(exp) ){ ferror=ierror=true; }
+							break;
+
+						case 'email':
+							if( !emailExp.test(i.val()) ){ ferror=ierror=true; }
+							break;
+
+
+						case 'checked':
+							if( !i.attr('checked') ){ ferror=ierror=true; }
+							break;
+
+						case 'regexp':
+							exp = new RegExp(exp);
+							if( !exp.test(i.val()) ){ ferror=ierror=true; }
+							break;
+					}
+					i.next('.validation').html( ( ierror ? (i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input') : '' ) ).show('blind');
+				}
+			});
+			if( ferror ) return false;
+			else var str = $(this).serialize();
+			NProgress.start();
+			$.ajax({
+				type: "POST",
+				dataType:"json",
+				url: '<?=Router::url(["controller"=>"users","action"=>"register"])?>',
+				data: new FormData(this),
+				contentType: false,
+				processData: false,
+				success: function(response){
+					NProgress.done();
+					if(response.status){
+						$.Zebra_Dialog('<strong>Congratulations!</strong>,You have successfully register with us, An email has sent on your email, please confirm it. Thanks', {
+							'type':     'information',
+							'title':    'Congratulations!',
+							'buttons':  ['Ok'],
+							'onClose':  function(caption) {
+								window.location.href = '<?=Router::url(["controller"=>"homes"]);?>';
+								//alert((caption != '' ? '"' + caption + '"' : 'nothing') + ' was clicked');
+
+							}
+						});
+					}
+				},
+				error: function(x){NProgress.done();alert(x.responseText);}
+			});
+			return false;
+		});
+
+
+	});
+</script>

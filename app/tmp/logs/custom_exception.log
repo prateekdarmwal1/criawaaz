@@ -1,0 +1,51 @@
+
+2017-04-18 09:43:03: exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'finByMatch_id' at line 1' in /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php:458
+Stack trace:
+#0 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('finByMatch_id', Array)
+#2 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('finByMatch_id', Array, Array)
+#3 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php(609): DboSource->fetchAll('finByMatch_id', Array, Array)
+#4 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Model.php(808): DboSource->query('finByMatch_id', Array, Object(Inning))
+#5 /opt/lampp/htdocs/cricawaaz/app/Plugin/Admin/Controller/AdminsController.php(65): Model->__call('finByMatch_id', Array)
+#6 /opt/lampp/htdocs/cricawaaz/app/Plugin/Admin/Controller/AdminsController.php(65): Inning->finByMatch_id('all')
+#7 [internal function]: AdminsController->update_target()
+#8 /opt/lampp/htdocs/cricawaaz/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(AdminsController), Array)
+#9 /opt/lampp/htdocs/cricawaaz/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 /opt/lampp/htdocs/cricawaaz/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(AdminsController), Object(CakeRequest))
+#11 /opt/lampp/htdocs/cricawaaz/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+
+
+2017-04-18 09:45:38: exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'finByMatch_id' at line 1' in /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php:458
+Stack trace:
+#0 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('finByMatch_id', Array)
+#2 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('finByMatch_id', Array, Array)
+#3 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php(609): DboSource->fetchAll('finByMatch_id', Array, Array)
+#4 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Model.php(808): DboSource->query('finByMatch_id', Array, Object(Inning))
+#5 /opt/lampp/htdocs/cricawaaz/app/Plugin/Admin/Controller/AdminsController.php(65): Model->__call('finByMatch_id', Array)
+#6 /opt/lampp/htdocs/cricawaaz/app/Plugin/Admin/Controller/AdminsController.php(65): Inning->finByMatch_id('all')
+#7 [internal function]: AdminsController->update_target()
+#8 /opt/lampp/htdocs/cricawaaz/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(AdminsController), Array)
+#9 /opt/lampp/htdocs/cricawaaz/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 /opt/lampp/htdocs/cricawaaz/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(AdminsController), Object(CakeRequest))
+#11 /opt/lampp/htdocs/cricawaaz/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+
+
+2017-04-18 09:46:46: exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'finByMatch_id' at line 1' in /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php:458
+Stack trace:
+#0 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('finByMatch_id', Array)
+#2 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('finByMatch_id', Array, Array)
+#3 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Datasource/DboSource.php(609): DboSource->fetchAll('finByMatch_id', Array, Array)
+#4 /opt/lampp/htdocs/cricawaaz/lib/Cake/Model/Model.php(808): DboSource->query('finByMatch_id', Array, Object(Inning))
+#5 /opt/lampp/htdocs/cricawaaz/app/Plugin/Admin/Controller/AdminsController.php(65): Model->__call('finByMatch_id', Array)
+#6 /opt/lampp/htdocs/cricawaaz/app/Plugin/Admin/Controller/AdminsController.php(65): Inning->finByMatch_id('180')
+#7 [internal function]: AdminsController->update_target()
+#8 /opt/lampp/htdocs/cricawaaz/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(AdminsController), Array)
+#9 /opt/lampp/htdocs/cricawaaz/lib/Cake/Routing/Dispatcher.php(191): Controller->invokeAction(Object(CakeRequest))
+#10 /opt/lampp/htdocs/cricawaaz/lib/Cake/Routing/Dispatcher.php(165): Dispatcher->_invoke(Object(AdminsController), Object(CakeRequest))
+#11 /opt/lampp/htdocs/cricawaaz/app/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+

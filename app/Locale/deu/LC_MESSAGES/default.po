@@ -1,0 +1,207 @@
+msgid "Current Password"
+msgstr "Mot de passe actuel"
+
+msgid "Register"
+msgstr "Registrieren"
+
+msgid "Login"
+msgstr "Benutzerabfragen"
+
+msgid "HOME"
+msgstr "ZUHAUSE"
+
+msgid "Login"
+msgstr "Benutzerabfragen"
+
+msgid "BUSINESS DIRECTORY"
+msgstr "Branchenbuch"
+
+msgid "EVENT PLANNERS"
+msgstr "Veranstaltungsplaner"
+
+msgid "EVENT CALENDAR"
+msgstr "VERANSTALTUNGSKALENDER"
+
+msgid "Select Category"
+msgstr "Wählen Sie Kategorie"
+
+msgid "Which event are you planning?"
+msgstr "Welche Veranstaltung planen Sie?"
+
+msgid "Postal Code"
+msgstr "Postleitzahl"
+
+msgid "Any Distance"
+msgstr "Beliebig Entfernung"
+
+msgid "Choose Keyword"
+msgstr "wählen Stichwort"
+
+msgid "Eventus Program"
+msgstr "Eventus-Programm"
+
+msgid "About Eventus"
+msgstr "Über Eventus"
+
+msgid "Stay Connected On"
+msgstr "Bleiben Sie in Verbindung On"
+
+msgid "Contacts"
+msgstr "Kontakte"
+
+msgid "Contact Us"
+msgstr "kontaktieren Sie uns"
+
+msgid "Occasion"
+msgstr "Anlass"
+
+msgid "Date of Event"
+msgstr "Datum der Veranstaltung"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Number of Guests"
+msgstr "Anzahl der Gäste"
+
+msgid "City"
+msgstr "Stadt"
+
+msgid "Enter Postcode"
+msgstr "geben Sie Postleitzahl"
+
+msgid "What you should create offers our providers?"
+msgstr "Was sollten Sie erstellen Angebote unserer Anbieter?"
+
+msgid "If you have Planner account please check"
+msgstr "Wenn Sie Planer Konto haben überprüfen Sie bitte"
+
+msgid "Gender"
+msgstr "Geschlecht"
+
+msgid "First Name"
+msgstr "Vorname"
+
+msgid "Last Name"
+msgstr "Nachname"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Detail"
+msgstr "Detailliertheit"
+
+msgid "Forgot password"
+msgstr "Passwort vergessen"
+
+msgid "Sign up"
+msgstr "Anmeldung"
+
+msgid "Register Now For Member"
+msgstr "Jetzt anmelden Mitglied"
+
+msgid "NEXT"
+msgstr "WEITER"
+
+msgid "COMPANY"
+msgstr "KOMPANIE"
+
+msgid "CONTACT"
+msgstr "KONTAKT"
+
+msgid "GENDER"
+msgstr "GESCHLECHT"
+
+msgid "OWNER"
+msgstr "EIGENTÜMER"
+
+msgid "MOBILE"
+msgstr "HANDY"
+
+msgid "PHONE"
+msgstr "TELEFON"
+
+msgid "ADDRESS"
+msgstr "ADRESSE"
+
+msgid "STREET"
+msgstr "STRAßE"
+
+msgid "POSTAL CODE"
+msgstr "POSTLEITZAHL"
+
+msgid "CONFIRM PASSWORD"
+msgstr "CONFIRM PASSWORT"
+
+msgid "CITY"
+msgstr "STADT"
+
+msgid "STATE"
+msgstr "ZUSTAND"
+
+msgid "VERIFICATION"
+msgstr "PRÜFUNG"
+
+msgid "What you should create offers our providers?"
+msgstr "Was sollten Sie erstellen Angebote unserer Anbieter?"
+
+msgid "Brief Profile"
+msgstr "Kurzprofil"
+
+msgid "Search Start"
+msgstr "Suche starten"
+
+msgid "PASSWORD"
+msgstr "PASSWORT"
+
+msgid "References"
+msgstr "Referenzen"
+
+msgid "Forgot password"
+msgstr "Passwort vergessen"
+
+msgid "User Type"
+msgstr "Benutzertyp"
+
+msgid "Send"
+msgstr "senden"
+
+msgid "Subject"
+msgstr "Thema"
+
+msgid "Message"
+msgstr "Nachricht"
+
+msgid "Contact Person"
+msgstr "Ansprechpartner"
+
+msgid "Services"
+msgstr "Dienstleistungen"
+
+msgid "Location"
+msgstr "Lage"
+
+msgid "Contact Number"
+msgstr "Kontaktnummer"
+
+msgid "Web"
+msgstr "Netz"
+
+msgid "Images"
+msgstr "Bilder"
+
+msgid "Comments"
+msgstr "Kommentare"
+
+msgid "Leave a comment"
+msgstr "Hinterlasse einen Kommentar"
+
+msgid "Rating"
+msgstr "Wertung"
+
+msgid "Make sure you enter the (*) required information where indicated. HTML code is not allowed."
+msgstr "Stellen Sie sicher, dass Sie die (*) erforderlichen Informationen einzugeben sind angegeben. HTML-Code ist nicht erlaubt."
+

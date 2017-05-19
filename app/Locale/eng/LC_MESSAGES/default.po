@@ -1,0 +1,4 @@
+msgid "Title must not be empty."
+msgstr "Title must not be empty."
+msgid "Description must not be empty."
+msgstr "Description must not be empty."
