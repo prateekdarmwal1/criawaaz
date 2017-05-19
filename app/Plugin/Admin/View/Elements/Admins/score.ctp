@@ -46,16 +46,8 @@
                 $(this).val('Edit');
                 $('#box-run').html($('#run-text').val());
                 $('#box-wicket').html($('#wicket-text').val());
-                $('#history-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
-                $('#target-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
-                $('#assump-current_overs').val($('#overs-text').val());
-                $('#assump-current_scores').val($('#run-text').val()+"/"+$('#wicket-text').val());
-                if($('#assump-session-'.concat(<?= $lastAssump['id'] ?>)).length>0){
-                    $('#assump-current_overs-'.concat(<?= $lastAssump['id'] ?>)).val($('#overs-text').val());
-                    $('#assump-current_scores-'.concat(<?= $lastAssump['id'] ?>)).val($('#run-text').val()+"/"+$('#wicket-text').val());
-                    $('#assump-session-'.concat(<?= $lastAssump['id'] ?>)).focus();
-
-                }
+                updateScoreOvers(<?= $lastAssump['id'] ?>);
+                callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);
                 callAjax(UpdateWickets);
             }
 
@@ -68,13 +60,8 @@
             }
             $("#run-text").val(currentRuns);
             $('#box-run').html(currentRuns);
-            $('#history-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
-            $('#target-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
-            $('#assump-current_scores').val($('#run-text').val()+"/"+$('#wicket-text').val());
-            if($('#assump-session-'.concat(<?= $lastAssump['id'] ?>)).length>0){
-                $('#assump-current_scores-'.concat(<?= $lastAssump['id'] ?>)).val($('#run-text').val()+"/"+$('#wicket-text').val());
-                    $('#assump-session-'.concat(<?= $lastAssump['id'] ?>)).focus();
-                }
+            updateScoreOvers(<?= $lastAssump['id'] ?>);
+            callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);
             callAjax(UpdateWickets);
         });
         $("#runs-plus").on('click', function () {
@@ -83,17 +70,22 @@
             currentRuns = currentRuns+1;
             $("#run-text").val(currentRuns);
             $('#box-run').html(currentRuns);
-            $('#history-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
-            $('#target-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
-            $('#assump-current_overs').val($('#overs-text').val());
-            $('#assump-current_scores').val($('#run-text').val()+"/"+$('#wicket-text').val());
-
-            if($('#assump-session-'.concat(<?= $lastAssump['id'] ?>)).length>0){
-                $('#assump-current_overs-'.concat(<?= $lastAssump['id'] ?>)).val($('#overs-text').val());
-                $('#assump-current_scores-'.concat(<?= $lastAssump['id'] ?>)).val($('#run-text').val()+"/"+$('#wicket-text').val());
-                    $('#assump-session-'.concat(<?= $lastAssump['id'] ?>)).focus();
-                }
+            updateScoreOvers(<?= $lastAssump['id'] ?>);
+            callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);
             callAjax(UpdateWickets);
         });
-    // });
+    
+    function updateScoreOvers(id){
+        $('#history-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
+        $('#target-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
+        $('#assump-current_overs').val($('#overs-text').val());
+        $('#assump-current_scores').val($('#run-text').val()+"/"+$('#wicket-text').val());
+
+        if($('#assump-session-'.concat(id)).length>0){
+            $('#assump-current_overs-'.concat(id)).val($('#overs-text').val());
+            $('#assump-current_scores-'.concat(id)).val($('#run-text').val()+"/"+$('#wicket-text').val());
+                $('#assump-session-'.concat(id)).focus();
+        }
+    }
+
 </script>

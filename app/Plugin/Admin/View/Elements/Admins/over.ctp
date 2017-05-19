@@ -28,15 +28,8 @@
                 $("#" + $(this).attr('action')).attr('disabled', true);
                 $(this).val('Edit');
                 $('#box-over').html($('#overs-text').val());
-                $('#target-overs').val($('#overs-text').val());
-                $('#history-overs').val($('#overs-text').val());
-                $('#assump-current_overs').val($('#overs-text').val());
-                $('#assump-current_scores').val($('#run-text').val()+"/"+$('#wicket-text').val());
-               if($('#assump-session-'.concat(<?= $lastAssump['id'] ?>)).length>0){
-                   $('#assump-current_overs-'.concat(<?= $lastAssump['id'] ?>)).val($('#overs-text').val());
-                   $('#assump-current_scores-'.concat(<?= $lastAssump['id'] ?>)).val($('#run-text').val()+"/"+$('#wicket-text').val());
-                   $('#assump-session-'.concat(<?= $lastAssump['id'] ?>)).focus();
-                }
+                updateScoreOvers(<?= $lastAssump['id'] ?>);
+                callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);
                 callAjax(UpdateWickets);
             }
         });
@@ -53,15 +46,8 @@
             }
             $("#overs-text").val(currentOver);
             $('#box-over').html(currentOver);
-            $('#target-overs').val($('#overs-text').val());
-            $('#history-overs').val($('#overs-text').val());
-            $('#assump-current_overs').val($('#overs-text').val());
-            $('#assump-current_scores').val($('#run-text').val()+"/"+$('#wicket-text').val());
-            if($('#assump-session-'.concat(<?= $lastAssump['id'] ?>)).length>0){
-                    $('#assump-current_overs-'.concat(<?= $lastAssump['id'] ?>)).val($('#overs-text').val());
-                $('#assump-current_scores-'.concat(<?= $lastAssump['id'] ?>)).val($('#run-text').val()+"/"+$('#wicket-text').val());
-                    $('#assump-session-'.concat(<?= $lastAssump['id'] ?>)).focus();
-                }
+            updateScoreOvers(<?= $lastAssump['id'] ?>);
+            callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);
             callAjax(UpdateWickets);
         });
         $("#overs-plus").on('click', function () {
@@ -76,15 +62,8 @@
             }
             $("#overs-text").val(currentOver);
             $('#box-over').html(currentOver);
-            $('#target-overs').val($('#overs-text').val());
-            $('#history-overs').val($('#overs-text').val());
-            $('#assump-current_overs').val($('#overs-text').val());
-            $('#assump-current_scores').val($('#run-text').val()+"/"+$('#wicket-text').val());
-           if($('#assump-session-'.concat(<?= $lastAssump['id'] ?>)).length>0){
-               $('#assump-current_overs-'.concat(<?= $lastAssump['id'] ?>)).val($('#overs-text').val());
-               $('#assump-current_scores-'.concat(<?= $lastAssump['id'] ?>)).val($('#run-text').val()+"/"+$('#wicket-text').val());
-                    $('#assump-session-'.concat(<?= $lastAssump['id'] ?>)).focus();
-                }  
+            updateScoreOvers(<?= $lastAssump['id'] ?>);
+            callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);  
             callAjax(UpdateWickets);
         });
     });
