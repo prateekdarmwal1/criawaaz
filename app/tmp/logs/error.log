@@ -27105,3 +27105,14 @@ Stack Trace:
 #2 /var/www/html/cricawaaz/lib/Cake/Core/App.php(904): App::_checkFatalError()
 #3 [internal function]: App::shutdown()
 #4 {main}
+2017-05-19 17:43:47 Error: [MissingActionException] Action ScoresController::get_scores() could not be found.
+Exception Attributes: array (
+  'controller' => 'ScoresController',
+  'action' => 'get_scores',
+)
+Request URL: /cricawaaz/scores/get_scores/220.json
+Stack Trace:
+#0 /var/www/html/cricawaaz/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/cricawaaz/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ScoresController), Object(CakeRequest))
+#2 /var/www/html/cricawaaz/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
