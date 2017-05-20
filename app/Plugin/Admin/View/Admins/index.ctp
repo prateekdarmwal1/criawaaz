@@ -1,4 +1,4 @@
- <style>
+<style>
     .ui-tabs .ui-tabs-panel{padding:1em !important}
     hr{margin-bottom: 5px !important;}
     .ui-button .ui-button-text{color:black}

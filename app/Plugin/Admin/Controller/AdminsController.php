@@ -107,8 +107,6 @@ class AdminsController extends AdminAppController {
       }
     }
     public function index($matchId=null,$inning=1) {
-        // echo $matchId;
-        // die;
       try{
         if (!$this->Session->check('Auth.User.Admin')) {
           $this->redirect(["controller" => "Admins", "action" => 'login']);
@@ -123,11 +121,12 @@ class AdminsController extends AdminAppController {
         $this->get_online_users();
         $matchResult = $this->Match->findById($matchId);
         $assump = $result['Assumption'];
-        // debug(current($assump));die;
+        $ballDetail = empty($result['Balldetail']) ? "" : $result['Balldetail'];
         $this->set(array(
             'score' => $result,
             'lastAssump' => current($assump),
-            '_serialize' => array('score','lastAssump')
+            'ballDetail' => $ballDetail,
+            '_serialize' => array('score','lastAssump', 'ballDetail')
         ));
         $this->set(array(
            'match' => $matchResult,
@@ -144,6 +143,38 @@ class AdminsController extends AdminAppController {
           fclose($logfile);
       }
     }
+
+    public function ball_details(){
+      try{
+        $this->autoRender = false;
+        $json['error'] = true;
+        if($this->request->is("post")) {
+            $this->loadModel('Admin.Balldetail');
+            if($this->data['id']==""){
+              $this->Balldetail->create();
+            }
+            else{
+              $this->Balldetail->set('id',$this->data['id']);
+            }
+            $save = $this->Balldetail->save($this->data);
+            if($save) {
+                $json['error'] = false;
+                return json_encode(array('id' => $this->Balldetail->id));
+            }
+         }
+
+      }
+      catch(Exception $e){
+        $path = $_SERVER["DOCUMENT_ROOT"]."/tmp/logs/custom_exception.log";
+        $logfile = fopen($path,'a+');
+        $data = "\n".date('Y-m-d H:i:s').": ".$e."\n\n";
+        fwrite($logfile,$data);
+        fclose($logfile);
+      }
+    }
+
+
+
 
     public function create_assumption(){
       try{

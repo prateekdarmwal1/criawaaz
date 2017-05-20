@@ -33,6 +33,7 @@
             <label>Wide Ball</label>
             <div class="mws-form-item">
                 <div id="mws-ui-button-radio">
+                    <input type="text" id="extra-wide-runs" style="width:20px;">
                     <button class="" id="wide-no-ball">&nbsp;&nbsp;&nbsp;Wide&nbsp;&nbsp;&nbsp;</button>
                 </div>
             </div>
@@ -41,6 +42,7 @@
             <label>No Ball</label>
             <div class="mws-form-item">
                 <div id="mws-ui-button-radio">
+                    <input type="text" id="extra-no-runs" style="width:20px;">
                     <button class="" id="no-ball">&nbsp;&nbsp;&nbsp;No Ball&nbsp;&nbsp;&nbsp;</button>
                 </div>
             </div>
@@ -73,6 +75,116 @@
 <script>
 
     $(function () {
+        var overOld = (isNaN($('#overs-text').val()) ? 0 : $('#overs-text').val());
+        var runOld = (isNaN($('#run-text').val()) ? 0 : $('#run-text').val());
+        var wicktOld = (isNaN($('#wicket-text').val()) ? 0 : $('#wicket-text').val());
+        var ball1 = '<?= $ballDetail["ball_one"]?>';
+        var ball2 = '<?= $ballDetail["ball_two"]?>';
+        var ball3 = '<?= $ballDetail["ball_three"]?>';
+        var ball4 = '<?= $ballDetail["ball_four"]?>';
+        var ball5 = '<?= $ballDetail["ball_five"]?>';
+        var ball6 = '<?= $ballDetail["ball_six"]?>';
+        <?php if(!empty($ballDetail)){ ?>
+            var balls = [];
+            if(ball1!=""){
+                balls = balls.concat([ball1]);
+            }if(ball2!=""){
+                balls = balls.concat([ball2]);
+            }if(ball3!=""){
+                balls = balls.concat([ball3]);
+            }if(ball4!=""){
+                balls = balls.concat([ball4]);
+            }if(ball5!=""){
+                balls = balls.concat([ball5]);
+            }if(ball6!=""){
+                balls = balls.concat([ball6]);
+            } 
+        <?php } else { ?>
+            var balls = [];
+        <?php } ?>
+        var shiftedValue = "";
+        var ballDetailId = "<?= $ballDetail['id'] ?>";
+
+
+        function addNextBall(ball_status){
+            if(balls.length==6){
+                    shiftedValue = balls.shift();
+            }
+            if(ball_status.trim()=="Wicket"){
+                ball_status="W";
+            }
+            balls.push(ball_status.trim());
+            console.log("addNextBall: "+balls);
+            submitBallDetails(balls);
+        }
+
+        function editBalls(){
+            balls.pop();
+            if(shiftedValue!=""){
+                balls.unshift(shiftedValue);
+            }
+            console.log("editBalls: "+balls);
+        }
+
+        function changeBallData(Value){
+            if(Value==""){
+                balls[balls.length-1]=balls[balls.length-1].replace(/W/,"");
+            }
+            else if(Value=="W"){
+                balls[balls.length-1]+="W";   
+            }
+            console.log("changeBallData: "+balls);
+            submitBallDetails(balls);
+        }
+
+        function submitBallDetails(balls){
+            var data={
+                id: ballDetailId,
+                scoreboard_id: '<?= $score["Score"]["id"] ?>',
+                ball_one: (balls[0]==null ? "" : balls[0].trim()),
+                ball_two: (balls[1]==null ? "" : balls[1].trim()),
+                ball_three: (balls[2]==null ? "" : balls[2].trim()),
+                ball_four: (balls[3]==null ? "" : balls[3].trim()),
+                ball_five: (balls[4]==null ? "" : balls[4].trim()),
+                ball_six: (balls[5]==null ? "" : balls[5].trim())
+            };
+            $.ajax({
+                type: "post",
+                data: data,
+                dataType: "JSON",
+                url: '<?= Router::url(["controller" => "Admins", "action" => 'ball_details']); ?>',
+                success: function (result) {
+                    ballDetailId = result.id;
+                },
+                error: function (x) {
+                    if(x.status == 403){
+                        window.location.href = '<?= Router::url(["controller" => "Admins", "action" => 'login']); ?>';
+                    }
+                }
+            });
+        }
+
+        $('#overs-text').on('change',function(){
+            var curOver = $('#overs-text').val();
+            if(parseFloat(overOld) < parseFloat(curOver)){
+                addNextBall($('#ball_status').text());    
+            }
+            else if(parseFloat(overOld) > parseFloat(curOver)){
+                editBalls();
+            }
+            overOld = curOver;
+        });
+
+
+        $('#wicket-text').change(function(){
+            if(parseInt($('#wicket-text').val())<parseInt(wicktOld)){
+                changeBallData("");
+            }
+            else if(parseInt($('#wicket-text').val())>parseInt(wicktOld)){
+                changeBallData("W");   
+            }
+        });
+
         $('#end-inning').on('click',function(){
             var cnf = confirm("Are you sure to end this inning?");
             if(!cnf){
@@ -97,20 +209,39 @@
             $("#overs-min").click();
         });
 
-         $('#wide-no-ball').click(function () {
+        $('#extra-wide-runs').change(function(){
+            var currentRuns = parseInt($("#run-text").val());
+            currentRuns = currentRuns+parseInt($('#extra-wide-runs').val());
+            $("#run-text").val(currentRuns);
+            $('#box-run').html(currentRuns);
+        });
+
+        $('#wide-no-ball').click(function () {
             $('#run-text').val(parseInt($('#run-text').val()) + 1);
             $('#box-run').html($('#run-text').val());
+            $('#ball_status').text($('#extra-wide-runs').val()+"Wide");
+            addNextBall($('#extra-wide-runs').val()+"wb");
+            $('#extra-wide-runs').val("");
             updateScoreOvers(<?= $lastAssump['id'] ?>);
-
-            $('#ball_status').text($(this).text());
             callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);
             callAjax(UpdateScore);
         });
 
+        $('#extra-no-runs').change(function(){
+            var currentRuns = parseInt($("#run-text").val());
+            currentRuns = currentRuns+parseInt($('#extra-no-runs').val());
+            $("#run-text").val(currentRuns);
+            $('#box-run').html(currentRuns);
+        });
+
+
+
         $('#no-ball').click(function () {
             $('#run-text').val(parseInt($('#run-text').val()) + 1);
             $('#box-run').html($('#run-text').val());
-            $('#ball_status').text($(this).text());
+            $('#ball_status').text($('#extra-no-runs').val()+"No Ball");
+            addNextBall($('#extra-no-runs').val()+"nb");
+            $('#extra-no-runs').val("");
             updateScoreOvers(<?= $lastAssump['id'] ?>);
             callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);
             callAjax(UpdateScore);
@@ -119,7 +250,7 @@
 
 
          $('.fastbtns').click(function(){
-            $('#ball_status').text($(this).text());
+            $('#ball_status').text($(this).text().trim());
             callAjax(UpdateScore);
          });
          $('.head-fast-btns').click(function(){
@@ -133,15 +264,16 @@
             var wic = parseInt($('#box-wicket').html()) + 1;
             $('#box-wicket').html(wic);
             $('#wicket-text').val(wic);
-            updateScoreOvers(<?= $lastAssump['id'] ?>);
             $('#ball_status').text($(this).text());
+            wicktOld = wic;
+            updateScoreOvers(<?= $lastAssump['id'] ?>);
             $("#overs-plus").click();
         });
         $('.fast-btns').on('click', function () {
             $('#run-text').val(parseInt($('#run-text').val()) + parseInt($(this).attr('run')));
             $('#box-run').html($('#run-text').val());
-            updateScoreOvers(<?= $lastAssump['id'] ?>);
             $('#ball_status').text($(this).text());
+            updateScoreOvers(<?= $lastAssump['id'] ?>);
             $('#overs-plus').click();
         });
     });

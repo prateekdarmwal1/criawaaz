@@ -31,7 +31,7 @@ App::uses('UserAppController', 'Controller');
 class ScoresController  extends UserAppController {
 
 	var $layout = "home";
-	public $uses = array('Score');
+	public $uses = array('Admin.Score');
         public function beforeFilter() {
             parent::beforeFilter();
         }
@@ -58,7 +58,7 @@ class ScoresController  extends UserAppController {
         public function get_history($match_id=null){
             try {
                 $this->set("title","History");
-                $this->loadModel("History");
+                $this->loadModel("Admin.History");
                 $result = $this->History->find('all', ["conditions" => ["match_id" => $match_id ]]);
                 //debug($result);die;
                 $this->set(array(
@@ -76,7 +76,7 @@ class ScoresController  extends UserAppController {
         public function get_match(){
             try {
                     $this->set("title","Home");
-                    $this->loadModel("Match");
+                    $this->loadModel("Admin.Match");
                     $result = $this->Match->find('first', array('order' => array('id' => 'DESC')));
                                     //debug($result);die;
                     $this->set(array(
@@ -100,7 +100,7 @@ class ScoresController  extends UserAppController {
                 //debug($result);die;
                 $this->set("title","Home");
 		        $result = $this->Score->find('all',["conditions"=>["match_id"=>$id]]);
-                //  debug($result);die;
+                 // debug($result);die;
             //die;
                 $data = array();
                 //debug($result);die;
@@ -121,6 +121,7 @@ class ScoresController  extends UserAppController {
                         $data["Inning".$result[$i]["Score"]["inning"]]['ball_status'] = $result[$i]["Score"]["ball_status"];
                         $data["Inning".$result[$i]["Score"]["inning"]]['session_detail'] = $result[$i]["Score"]["session_detail"];
                         $data["Inning".$result[$i]["Score"]["inning"]]['Assumption'] = !empty($result[$i]["Assumption"]) ? [$result[$i]["Assumption"][0]] : [];
+                        $data["Inning".$result[$i]["Score"]["inning"]]['Balldetail'] = !empty($result[$i]["Balldetail"]) ? $result[$i]["Balldetail"] : [];
                         $data["Inning".$result[$i]["Score"]["inning"]]['Summery'] = $result[$i]["Inning"];
 
                     }
