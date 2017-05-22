@@ -11,12 +11,15 @@
         <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" style="padding: 2px;">
             <li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active" id="itemScoreboard"><a href="#scoreboard">Score Board</a></li>
             <li class="ui-state-default ui-corner-top" id="itemUsersOnline"><a href="#usersonline" >User Online</a></li>
-            <li class="ui-state-default ui-corner-top" id="itemHistory"><a href="#history">History</a></li>
+            <li class="ui-state-default ui-corner-top" id="itemMatchSchedule"><a href="#matchSchedule">Match Schedule</a></li>
             <label>&nbsp;&nbsp;&nbsp;Match&nbsp;Interrupt&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" class="mws-textinput readonly" id="match-interrupt-text" value="" style="width:150px;">&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" class="mws-textinput readonly" id="match-interrupt-text" value="" style="width:150px;">&nbsp;&nbsp;
             <input type="button" class="mws-button red" id="match-interrupt-edit" value="Edit" style="margin-top: -0px;">
             &nbsp;&nbsp;
-
+            <label>&nbsp;&nbsp;&nbsp;Target&nbsp;Score&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" class="mws-textinput targets" id="total_target_score" value="" style="width:50px;">&nbsp;&nbsp;
+            <label>&nbsp;&nbsp;&nbsp;Total&nbsp;Overs&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" class="mws-textinput targets" id="total_overs" value="" style="width:50px;">&nbsp;&nbsp;
             <input id="mws-form-dialog-mdl-btn" class="mws-button green" value="New Match" type="button" style="float:right">
         </ul>
         <div id="scoreboard" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" style="padding: .8em">
@@ -45,11 +48,11 @@
             </div>
             <div class="clearfix"></div>
         </div>
-        <div id="history" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
+        <div id="matchSchedule" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
             <div class="grid_8" id="contentsReplace">
                 <?php
 
-                echo $this->element("Admins/history"); ?>
+                echo $this->element("Admins/match_schedule"); ?>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -61,6 +64,13 @@
      <?= $this->element("Admins/newmatchform"); ?>
 </div>
 <script>
+
+    $('#total_overs').change(function(){
+        sessionStorage.total_overs = parseFloat($("#total_overs").val());
+    })
+    $('#total_target_score').change(function(){
+        sessionStorage.total_score = parseFloat($("#total_target_score").val());;
+    });
     var UpdateWickets = function() {};
     var UpdateInnings = function() {};
     var UpdateScore = function() {};
@@ -73,6 +83,23 @@
     });
     function callAjax(callback) {
         NProgress.start();
+        var pageUrl = window.location.href;
+        var splitArr = pageUrl.split("/");
+        var currInning = splitArr[splitArr.length-1];
+        if(currInning.trim() == "2"){
+            if(sessionStorage.total_overs!=null && sessionStorage.total_score!=null){
+                var total_overs = sessionStorage.total_overs;
+                var targetScore = sessionStorage.total_score;
+                var requiredRunrate = parseFloat(targetScore/total_overs).toFixed(2);
+                var currRunrate = parseFloat($('#run-text').val())/parseFloat($('#overs-text').val()).toFixed(2);
+                var runsRem = parseInt(targetScore)-parseInt($('#run-text').val());
+                var ballArr =  total_overs.split('.');
+                var totalBalls = parseInt(ballArr[0])*6+(isNaN(ballArr[1]) ? 0 : parseInt(ballArr[1]));
+                ballArr =  $('#overs-text').val().split('.');
+                var currBalls = parseInt(ballArr[0])*6+(isNaN(ballArr[1]) ? 0 : parseInt(ballArr[1]));
+                var ballsRem = parseInt(totalBalls-currBalls);
+            }
+        }
         var data = {
             id: '<?= $score["Score"]["id"] ?>',
             innings_over: $('#box-current-innings').html(),
@@ -83,6 +110,10 @@
             match_detail: $('#match_detail').val().trim(),
             session_detail: $('#session_comment').val().trim(),
             ball_status: $('#ball_status').text().trim(),
+            cur_runrate: (currRunrate!=null ? currRunrate : ""),
+            req_runrate: (requiredRunrate!=null ? requiredRunrate : ""),
+            ball_remains: (ballsRem!=null ? ballsRem : ""),
+            runs_needed: (runsRem!=null ? runsRem : "")
         };
         $.ajax({
             type: "post",
@@ -110,11 +141,11 @@
             $(window).scrollTop(sessionStorage.scrollTop);
 
         }
-        if(sessionStorage.activeTab == "history"){
+        if(sessionStorage.activeTab == "matchSchedule"){
             $('#itemScoreboard').removeClass("ui-tabs-selected ui-state-active");
             $('#scoreboard').addClass("ui-tabs-hide");
-            $('#itemHistory').addClass("ui-tabs-selected ui-state-active");
-            $('#history').removeClass("ui-tabs-hide");
+            $('#itemMatchSchedule').addClass("ui-tabs-selected ui-state-active");
+            $('#matchSchedule').removeClass("ui-tabs-hide");
             sessionStorage.activeTab = "";
         }
     });

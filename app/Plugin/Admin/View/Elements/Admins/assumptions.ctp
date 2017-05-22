@@ -401,20 +401,31 @@
         var assumpUpdate = function() {};
 
         function calculateRemainingRun(id){
-            var rem_runs = parseInt($('#assump-score2-hundreds-'+id).val()+$('#assump-score2-'+id).val())-parseInt($('#run-text').val());
-            console.log("Remaining Runs: "+rem_runs);
+            var rem_runs = 0;
+            if($('#assump-score2-'+id).val()=="" || $('#assump-score2-'+id).val()=="0"){
+                rem_runs = 0;
+            }
+            else{
+                var rem_runs = parseInt($('#assump-score2-hundreds-'+id).val()+$('#assump-score2-'+id).val())-parseInt($('#run-text').val());
+                console.log("Remaining Runs: "+rem_runs);
+            }
             return rem_runs;
         }
 
         function calculateRemainingBall(id){
             var rem_balls = 0;
-            var currOver = $('#assump-current_overs-'+id).val();
-            var ballArr =  currOver.split('.');
-            var currBalls = parseInt(ballArr[0])*6+(isNaN(ballArr[1]) ? 0 : parseInt(ballArr[1]));
-            var ballArr =  $('#assump-overs-'+id).val().split('.');
-            console.log(ballArr);
-            var totalBalls = parseInt(ballArr[0])*6+(isNaN(ballArr[1]) ? 0 : parseInt(ballArr[1]));
-            var rem_balls = totalBalls-currBalls;
+            if($('#assump-overs-'+id).val()=="" || $('#assump-overs-'+id).val()=="0" || $('#assump-overs-'+id).val()=="0.0"){
+                rem_balls = 0;
+            }
+            else{
+                var currOver = $('#assump-current_overs-'+id).val();
+                var ballArr =  currOver.split('.');
+                var currBalls = parseInt(ballArr[0])*6+(isNaN(ballArr[1]) ? 0 : parseInt(ballArr[1]));
+                var ballArr =  $('#assump-overs-'+id).val().split('.');
+                console.log(ballArr);
+                var totalBalls = parseInt(ballArr[0])*6+(isNaN(ballArr[1]) ? 0 : parseInt(ballArr[1]));
+                var rem_balls = totalBalls-currBalls;
+            }
             console.log("Remaining Balls: "+rem_balls);
             return rem_balls;
         }

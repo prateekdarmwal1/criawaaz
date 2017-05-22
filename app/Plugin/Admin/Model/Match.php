@@ -8,17 +8,4 @@ class Match extends AppModel{
 	var $id = 'id';
 	var $useTable = "matches";
 
-	var $hasMany = array(
-        // 'Score' => array(
-        //     'className' => 'Score',
-        //     'foreignKey' => "match_id",
-        //     "order" => "overs DESC"
-        // ),
-        'History' => array(
-            'className' => 'History',
-            'foreignKey' => "match_id",
-            "order" => "innings DESC"
-        )
-    );
-
 }

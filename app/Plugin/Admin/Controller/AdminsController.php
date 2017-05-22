@@ -36,7 +36,7 @@ class AdminsController extends AdminAppController {
      * @var array
      */
     var $name = "Admins";
-    public $uses = array("Admin.Score", "Admin.Admin","Admin.Match","Admin.Team","Admin.History","Admin.Appdetail");
+    public $uses = array("Admin.Score", "Admin.Admin","Admin.Match","Admin.Team","Admin.Matchschedule","Admin.Appdetail");
     var $layout = "admin";
 
     /**
@@ -120,6 +120,7 @@ class AdminsController extends AdminAppController {
         $this->set('inning',$inning);
         $this->get_online_users();
         $matchResult = $this->Match->findById($matchId);
+        $matchSchedule = $this->Matchschedule->find('all');
         $assump = $result['Assumption'];
         $ballDetail = empty($result['Balldetail']) ? "" : $result['Balldetail'];
         $this->set(array(
@@ -131,7 +132,8 @@ class AdminsController extends AdminAppController {
         $this->set(array(
            'match' => $matchResult,
            'appdetail' => $appdetail,
-            '_serialize' => array('match','appdetail')
+           'matchSchedule' => $matchSchedule,
+            '_serialize' => array('match','appdetail','matchSchedule')
         ));
       }
       catch(Exception $e)
@@ -226,22 +228,22 @@ class AdminsController extends AdminAppController {
     }
 
 
-    public function create_history()
+    public function create_match_schedule()
     {
       try{
         $this->autoRender = false;
-        $this->loadModel('Admin.History');
+        $this->loadModel('Admin.MatchSchedule');
         $json['error'] = true;
         if (!$this->Session->check('Auth.User.Admin')) {
           return Router::url(["controller" => "Admins", "action" => 'login']);
         }
         if ($this->request->is("post")) {
 
-            $this->History->create();
-            $save = $this->History->save($this->data);
+            $this->Matchschedule->create();
+            $save = $this->Matchschedule->save($this->data);
             if ($save) {
                 $json['error'] = false;
-                return json_encode(array('saveSuccess' => true, 'match_id' => $this->data['match_id'], 'inning' => $this->data['innings']));
+                return json_encode(array('saveSuccess' => true));
             }
 //            echo json_encode($json);
         }
@@ -255,15 +257,15 @@ class AdminsController extends AdminAppController {
           fclose($logfile);
       }
     }
-    public function update_history()
+    public function update_match_schedule()
     {
       try{
         $this->autoRender = false;
-        $this->loadModel('Admin.History');
+        $this->loadModel('Admin.Matchschedule');
         $json['error'] = true;
         if ($this->request->is("post")) {
-            $this->History->set('id',$this->data['id']);
-            $save = $this->History->save($this->data);
+            $this->Matchschedule->set('id',$this->data['id']);
+            $save = $this->Matchschedule->save($this->data);
             if ($save) {
                 $json['error'] = false;
             }
@@ -280,13 +282,13 @@ class AdminsController extends AdminAppController {
       }
     }
 
-    function delete_history(){
+    function delete_match_schedule(){
       try{
         $this->autoRender = false;
-        $this->loadModel('Admin.History');
+        $this->loadModel('Admin.Matchschedule');
         $json['error'] = true;
         if ($this->request->is("post")) {
-            if ($this->History->delete($this->data['id'])) {
+            if ($this->Matchschedule->delete($this->data['id'])) {
                 $json['error'] = false;
             }
             echo json_encode($json);

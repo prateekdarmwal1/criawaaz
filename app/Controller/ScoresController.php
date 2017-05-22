@@ -55,24 +55,6 @@ class ScoresController  extends UserAppController {
             }
         }
 
-        public function get_history($match_id=null){
-            try {
-                $this->set("title","History");
-                $this->loadModel("Admin.History");
-                $result = $this->History->find('all', ["conditions" => ["match_id" => $match_id ]]);
-                //debug($result);die;
-                $this->set(array(
-                    'response' => $result,
-                    '_serialize' => array('response')
-                ));
-            }
-            catch (MissingViewException $e) {
-                if (Configure::read('debug')) {
-                    throw $e;
-                }
-            }
-        }
-
         public function get_match(){
             try {
                     $this->set("title","Home");
@@ -82,6 +64,24 @@ class ScoresController  extends UserAppController {
                     $this->set(array(
                         'response' => $result,
                         '_serialize' => array('response')
+                    ));
+                }
+            catch (MissingViewException $e) {
+                if (Configure::read('debug')) {
+                    throw $e;
+                }
+            }
+        }
+
+        public function get_match_schedule(){
+            try {
+                    $this->set("title","Home");
+                    $this->loadModel("Admin.Matchschedule");
+                    $result = $this->Matchschedule->find('all', array('order' => array('id' => 'DESC')));
+                                    //debug($result);die;
+                    $this->set(array(
+                        'schedule' => $result,
+                        '_serialize' => array('schedule')
                     ));
                 }
             catch (MissingViewException $e) {
@@ -120,6 +120,10 @@ class ScoresController  extends UserAppController {
                         $data["Inning".$result[$i]["Score"]["inning"]]['match_detail'] = $result[$i]["Score"]["match_detail"];
                         $data["Inning".$result[$i]["Score"]["inning"]]['ball_status'] = $result[$i]["Score"]["ball_status"];
                         $data["Inning".$result[$i]["Score"]["inning"]]['session_detail'] = $result[$i]["Score"]["session_detail"];
+                        $data["Inning".$result[$i]["Score"]["inning"]]['cur_runrate'] = $result[$i]["Score"]["cur_runrate"];
+                        $data["Inning".$result[$i]["Score"]["inning"]]['req_runrate'] = $result[$i]["Score"]["req_runrate"];
+                        $data["Inning".$result[$i]["Score"]["inning"]]['ball_remains'] = $result[$i]["Score"]["ball_remains"];
+                        $data["Inning".$result[$i]["Score"]["inning"]]['runs_needed'] = $result[$i]["Score"]["runs_needed"];
                         $data["Inning".$result[$i]["Score"]["inning"]]['Assumption'] = !empty($result[$i]["Assumption"]) ? [$result[$i]["Assumption"][0]] : [];
                         $data["Inning".$result[$i]["Score"]["inning"]]['Balldetail'] = !empty($result[$i]["Balldetail"]) ? $result[$i]["Balldetail"] : [];
                         $data["Inning".$result[$i]["Score"]["inning"]]['Summery'] = $result[$i]["Inning"];
@@ -130,24 +134,6 @@ class ScoresController  extends UserAppController {
                         $this->set(array(
                             'Score' => $data,
                             '_serialize' => array('Score')
-            ));
-		} catch (MissingViewException $e) {
-			if (Configure::read('debug')) {
-				throw $e;
-			}
-			throw new NotFoundException();
-		}
-	}
-        public function get_assumptions($id=1) {
-
-            try {
-                $this->set("title","Home");
-                $this->loadModel("Assumption");
-		$result = $this->Assumption->find('all',['conditions'=>["match_id"=>$id]]);
-                        //debug($result);die;
-                        $this->set(array(
-                            'response' => $result,
-                            '_serialize' => array('response')
             ));
 		} catch (MissingViewException $e) {
 			if (Configure::read('debug')) {

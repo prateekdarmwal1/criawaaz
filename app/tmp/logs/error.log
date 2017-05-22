@@ -27181,3 +27181,15 @@ Stack Trace:
 #9 /var/www/html/cricawaaz/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(AdminsController), Object(CakeRequest))
 #10 /var/www/html/cricawaaz/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #11 {main}
+2017-05-22 18:26:54 Error: [MissingViewException] View file "Scores/get_match.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Scores/get_match.ctp',
+)
+Request URL: /cricawaaz/scores/get_match/
+Stack Trace:
+#0 /var/www/html/cricawaaz/lib/Cake/View/View.php(470): View->_getViewFileName('Scores/get_matc...')
+#1 /var/www/html/cricawaaz/lib/Cake/Controller/Controller.php(963): View->render(NULL, NULL)
+#2 /var/www/html/cricawaaz/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/cricawaaz/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ScoresController), Object(CakeRequest))
+#4 /var/www/html/cricawaaz/app/webroot/index.php(98): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
