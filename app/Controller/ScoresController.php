@@ -125,8 +125,6 @@ class ScoresController  extends UserAppController {
                             $data["Inning".$result[$i]["Score"]["inning"]]['req_runrate'] = $result[$i]["Score"]["req_runrate"];
                             $data["Inning".$result[$i]["Score"]["inning"]]['ball_remains'] = $result[$i]["Score"]["ball_remains"];
                             $data["Inning".$result[$i]["Score"]["inning"]]['runs_needed'] = $result[$i]["Score"]["runs_needed"];
-                            $data["Inning".$result[$i]["Score"]["inning"]]['target_overs'] = $result[$i]["Score"]["target_overs"];
-                            $data["Inning".$result[$i]["Score"]["inning"]]['target_score'] = $result[$i]["Score"]["target_score"];
                         }
                         $data["Inning".$result[$i]["Score"]["inning"]]['Assumption'] = !empty($result[$i]["Assumption"]) ? [$result[$i]["Assumption"][0]] : [];
                         $data["Inning".$result[$i]["Score"]["inning"]]['Balldetail'] = !empty($result[$i]["Balldetail"]) ? $result[$i]["Balldetail"] : [];

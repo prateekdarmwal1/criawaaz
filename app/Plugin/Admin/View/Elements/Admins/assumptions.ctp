@@ -414,7 +414,7 @@
 
         function calculateRemainingBall(id){
             var rem_balls = 0;
-            if($('#assump-overs-'+id).val()=="" || $('#assump-overs-'+id).val()=="0" || $('#assump-overs-'+id).val()=="0.0"){
+            if($('#assump-overs-'+id).val()=="" || $('#assump-overs-'+id).val()=="0" || $('#assump-overs-'+id).val()=="0.0" || $('#assump-score2-'+id).val()=="" || $('#assump-score2-'+id).val()=="0"){
                 rem_balls = 0;
             }
             else{
