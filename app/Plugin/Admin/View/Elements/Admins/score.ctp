@@ -76,7 +76,6 @@
         });
     
     function updateScoreOvers(id){
-        $('#history-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
         $('#target-score').val($('#run-text').val()+"/"+$('#wicket-text').val());
         $('#assump-current_overs').val($('#overs-text').val());
         $('#assump-current_scores').val($('#run-text').val()+"/"+$('#wicket-text').val());

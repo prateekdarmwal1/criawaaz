@@ -17,9 +17,9 @@
             <input type="button" class="mws-button red" id="match-interrupt-edit" value="Edit" style="margin-top: -0px;">
             &nbsp;&nbsp;
             <label>&nbsp;&nbsp;&nbsp;Target&nbsp;Score&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" class="mws-textinput targets" id="total_target_score" value="" style="width:50px;">&nbsp;&nbsp;
+            <input type="text" class="mws-textinput targets" id="total_target_score" value="<?= !empty($score["Score"]["target_score"]) ? $score["Score"]["target_score"] : '' ?>" style="width:50px;">&nbsp;&nbsp;
             <label>&nbsp;&nbsp;&nbsp;Total&nbsp;Overs&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" class="mws-textinput targets" id="total_overs" value="" style="width:50px;">&nbsp;&nbsp;
+            <input type="text" class="mws-textinput targets" id="total_overs" value="<?= !empty($score["Score"]["target_overs"]) ? $score["Score"]["target_overs"] : '' ?>" style="width:50px;">&nbsp;&nbsp;
             <input id="mws-form-dialog-mdl-btn" class="mws-button green" value="New Match" type="button" style="float:right">
         </ul>
         <div id="scoreboard" class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" style="padding: .8em">
@@ -66,11 +66,11 @@
 <script>
 
     $('#total_overs').change(function(){
-        sessionStorage.total_overs = parseFloat($("#total_overs").val());
+        callAjax(UpdateScore);
     })
     $('#total_target_score').change(function(){
-        sessionStorage.total_score = parseFloat($("#total_target_score").val());;
-    });
+        callAjax(UpdateScore);
+    });    
     var UpdateWickets = function() {};
     var UpdateInnings = function() {};
     var UpdateScore = function() {};
@@ -87,11 +87,11 @@
         var splitArr = pageUrl.split("/");
         var currInning = splitArr[splitArr.length-1];
         if(currInning.trim() == "2"){
-            if(sessionStorage.total_overs!=null && sessionStorage.total_score!=null){
-                var total_overs = sessionStorage.total_overs;
-                var targetScore = sessionStorage.total_score;
-                var requiredRunrate = parseFloat(targetScore/total_overs).toFixed(2);
-                var currRunrate = parseFloat($('#run-text').val())/parseFloat($('#overs-text').val()).toFixed(2);
+                var total_overs = (isNaN(parseFloat($("#total_overs").val())) ? "" : parseFloat($("#total_overs").val()).toFixed(2));
+                var targetScore = (isNaN(parseInt($("#total_target_score").val())) ? "" : parseInt($("#total_target_score").val()));
+            if(total_overs!="" && targetScore!=""){
+                var requiredRunrate = parseFloat(parseFloat(targetScore)/total_overs).toFixed(2);
+                var currRunrate = (parseFloat($('#run-text').val())/parseFloat($('#overs-text').val())).toFixed(2);
                 var runsRem = parseInt(targetScore)-parseInt($('#run-text').val());
                 var ballArr =  total_overs.split('.');
                 var totalBalls = parseInt(ballArr[0])*6+(isNaN(ballArr[1]) ? 0 : parseInt(ballArr[1]));
@@ -113,7 +113,9 @@
             cur_runrate: (currRunrate!=null ? currRunrate : ""),
             req_runrate: (requiredRunrate!=null ? requiredRunrate : ""),
             ball_remains: (ballsRem!=null ? ballsRem : ""),
-            runs_needed: (runsRem!=null ? runsRem : "")
+            runs_needed: (runsRem!=null ? runsRem : ""),
+            target_overs: parseFloat($("#total_overs").val()),
+            target_score: parseInt($("#total_target_score").val()),
         };
         $.ajax({
             type: "post",

@@ -33,8 +33,8 @@
             <label>Wide Ball</label>
             <div class="mws-form-item">
                 <div id="mws-ui-button-radio">
-                    <input type="text" id="extra-wide-runs" style="width:20px;">
                     <button class="" id="wide-no-ball">&nbsp;&nbsp;&nbsp;Wide&nbsp;&nbsp;&nbsp;</button>
+                    <input type="text" id="extra-wide-runs" style="width:20px;">
                 </div>
             </div>
         </div>
@@ -42,8 +42,8 @@
             <label>No Ball</label>
             <div class="mws-form-item">
                 <div id="mws-ui-button-radio">
-                    <input type="text" id="extra-no-runs" style="width:20px;">
                     <button class="" id="no-ball">&nbsp;&nbsp;&nbsp;No Ball&nbsp;&nbsp;&nbsp;</button>
+                    <input type="text" id="extra-no-runs" style="width:20px;">
                 </div>
             </div>
         </div>
@@ -133,6 +133,9 @@
             else if(Value=="W"){
                 balls[balls.length-1]+="W";   
             }
+            else{
+                balls[balls.length-1] = Value.trim();
+            }
             console.log("changeBallData: "+balls);
             submitBallDetails(balls);
         }
@@ -214,14 +217,17 @@
             currentRuns = currentRuns+parseInt($('#extra-wide-runs').val());
             $("#run-text").val(currentRuns);
             $('#box-run').html(currentRuns);
+            $('#ball_status').text($('#extra-wide-runs').val()+"\nWide");
+            changeBallData($('#extra-wide-runs').val()+"wd");            
+            $('#extra-wide-runs').val("");
+            callAjax(UpdateScore);
         });
 
         $('#wide-no-ball').click(function () {
             $('#run-text').val(parseInt($('#run-text').val()) + 1);
             $('#box-run').html($('#run-text').val());
-            $('#ball_status').text($('#extra-wide-runs').val()+"Wide");
-            addNextBall($('#extra-wide-runs').val()+"wb");
-            $('#extra-wide-runs').val("");
+            $('#ball_status').text("Wide");
+            addNextBall("wd");
             updateScoreOvers(<?= $lastAssump['id'] ?>);
             callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);
             callAjax(UpdateScore);
@@ -232,6 +238,10 @@
             currentRuns = currentRuns+parseInt($('#extra-no-runs').val());
             $("#run-text").val(currentRuns);
             $('#box-run').html(currentRuns);
+            $('#ball_status').text($('#extra-no-runs').val()+"\nNo Ball");
+            changeBallData($('#extra-no-runs').val()+"nb");
+            $('#extra-no-runs').val("");
+            callAjax(UpdateScore);
         });
 
 
@@ -239,9 +249,8 @@
         $('#no-ball').click(function () {
             $('#run-text').val(parseInt($('#run-text').val()) + 1);
             $('#box-run').html($('#run-text').val());
-            $('#ball_status').text($('#extra-no-runs').val()+"No Ball");
-            addNextBall($('#extra-no-runs').val()+"nb");
-            $('#extra-no-runs').val("");
+            $('#ball_status').text("No Ball");
+            addNextBall("nb");
             updateScoreOvers(<?= $lastAssump['id'] ?>);
             callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);
             callAjax(UpdateScore);
