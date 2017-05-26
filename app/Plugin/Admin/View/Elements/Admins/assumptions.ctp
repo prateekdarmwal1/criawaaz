@@ -6,6 +6,7 @@
     .grid_4 .sessions{width: 14% !important}
     .grid_4 .alpha_sessions{width: 13% !important}
 
+
 </style>
 
 <div class="mws-panel-header">

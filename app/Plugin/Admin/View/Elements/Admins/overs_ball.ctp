@@ -8,14 +8,15 @@
     <button class="head-fast-btns mws-button green" data-text="Catch Out">&nbsp;C.O.&nbsp;</button>
     <button class="head-fast-btns mws-button green" data-text="L.B.W.">&nbsp;L.B.W.&nbsp;</button>
     <button class="head-fast-btns mws-button green" data-text="Free Hit">&nbsp;F.H.&nbsp;</button>
-    <button class="head-fast-btns mws-button green" data-text="Third Umpire">&nbsp;T.U.&nbsp;</button>
+    <button class="head-fast-btns mws-button green" data-text="Third Umpire">&nbsp;3.U.&nbsp;</button>
+    <button class="head-fast-btns mws-button green" data-text="Time Out">&nbsp;T.O.&nbsp;</button>
     </span>
 
     <button id="end-inning" class="mws-button green" style="float:right;margin-top:-35px;">End Inning</button>
 </div>
 <div class="mws-panel-body">
     <div class="mws-panel-toolbar top clearfix">
-        <div class="mws-form-row mws-form-col-4-8">
+        <div class="mws-form-row mws-form-col-4-8" style="width: 46%">
             <label>Click to update runs and balls</label>
             <div class="mws-form-item">
                 <div id="mws-ui-button-radio">
@@ -29,16 +30,17 @@
 
 
 
-<div class="mws-form-row mws-form-col-1-8">
+<div class="mws-form-row mws-form-col-1-8" style="width: 13.5%">
             <label>Wide Ball</label>
             <div class="mws-form-item">
                 <div id="mws-ui-button-radio">
+                    <button class="" id="wide-no-ball-reverse">-</button>
                     <button class="" id="wide-no-ball">&nbsp;&nbsp;&nbsp;Wide&nbsp;&nbsp;&nbsp;</button>
                     <input type="text" id="extra-wide-runs" style="width:20px;">
                 </div>
             </div>
-        </div>
-        <div class="mws-form-row mws-form-col-1-8">
+</div>
+<div class="mws-form-row mws-form-col-1-8" style="width: 13.5%">
             <label>No Ball</label>
             <div class="mws-form-item">
                 <div id="mws-ui-button-radio">
@@ -47,7 +49,7 @@
                 </div>
             </div>
         </div>
-        <div class="mws-form-row mws-form-col-1-8">
+        <div class="mws-form-row mws-form-col-1-8" style="width: 13.5%">
             <label>Update Wickets</label>
             <div class="mws-form-item">
                 <div id="mws-ui-button-radio">
@@ -60,7 +62,7 @@
 
 
 
-        <div class="mws-form-row mws-form-col-1-8">
+        <div class="mws-form-row mws-form-col-1-8" style="width: 13.5%">
             <label>Hawa Mein</label>
             <div class="mws-form-item">
                 <div id="mws-ui-button-radio">
@@ -128,7 +130,8 @@
 
         function changeBallData(Value){
             if(Value==""){
-                balls[balls.length-1]=balls[balls.length-1].replace(/W/,"");
+                balls.pop();
+                // balls[balls.length-1]=balls[balls.length-1].replace(/[Wwdnb]/,"");
             }
             else if(Value=="W"){
                 balls[balls.length-1]+="W";   
@@ -185,6 +188,21 @@
             callAjax(UpdateWickets);
         }
 
+        $('#wide-no-ball-reverse').click(function(){
+            var lastBall = balls[balls.length-1];
+            var lastscore = []
+            lastscore = lastBall.split(/[a-zA-Z]/);
+            console.log("lastScore: "+lastscore[0])
+            var currScore = parseInt($('#run-text').val())
+            currScore = currScore - (isNaN(lastscore[0]) || lastscore[0]==null || lastscore[0]=="" ? 1 : parseInt(lastscore[0])+1);
+            console.log("currScore: "+currScore);
+            $("#run-text").val(currScore);
+            $('#box-run').html(currScore);
+            // return;
+            updateScoreOvers(<?= $lastAssump['id'] ?>);
+            changeBallData("");
+        })
+
         $('#overs-text').on('change',function(){
             var curOver = $('#overs-text').val();
             if(parseFloat(overOld) < parseFloat(curOver)){
@@ -236,7 +254,8 @@
             $("#run-text").val(currentRuns);
             $('#box-run').html(currentRuns);
             $('#ball_status').text($('#extra-wide-runs').val()+"\nWide");
-            changeBallData($('#extra-wide-runs').val()+"wd");            
+            changeBallData($('#extra-wide-runs').val()+"wd");
+            updateScoreOvers(<?= $lastAssump['id'] ?>);            
             $('#extra-wide-runs').val("");
             callAjax(UpdateScore);
         });
@@ -258,6 +277,7 @@
             $('#box-run').html(currentRuns);
             $('#ball_status').text($('#extra-no-runs').val()+"\nNo Ball");
             changeBallData($('#extra-no-runs').val()+"nb");
+            updateScoreOvers(<?= $lastAssump['id'] ?>);
             $('#extra-no-runs').val("");
             callAjax(UpdateScore);
         });
