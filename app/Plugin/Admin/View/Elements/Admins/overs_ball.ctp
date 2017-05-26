@@ -167,6 +167,23 @@
             });
         }
 
+        function incrementOvr(){
+            var currentOver = $("#overs-text").val();
+            currentOver = (parseFloat(currentOver) + 0.1).toFixed(1);
+            var over = parseInt(currentOver);
+            var balls = (currentOver - over).toFixed(1);
+            if (balls == 0.6) {
+                over++;
+                currentOver = over;
+                balls = 0;
+            }
+            $("#overs-text").val(currentOver);
+            $('#box-over').html(currentOver);
+            updateScoreOvers(<?= $lastAssump['id'] ?>);
+            callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);  
+            callAjax(UpdateWickets);
+        }
+
         $('#overs-text').on('change',function(){
             var curOver = $('#overs-text').val();
             if(parseFloat(overOld) < parseFloat(curOver)){
@@ -276,14 +293,14 @@
             $('#ball_status').text($(this).text());
             wicktOld = wic;
             updateScoreOvers(<?= $lastAssump['id'] ?>);
-            $("#overs-plus").click();
+            incrementOvr();
         });
         $('.fast-btns').on('click', function () {
             $('#run-text').val(parseInt($('#run-text').val()) + parseInt($(this).attr('run')));
             $('#box-run').html($('#run-text').val());
             $('#ball_status').text($(this).text());
             updateScoreOvers(<?= $lastAssump['id'] ?>);
-            $('#overs-plus').click();
+            incrementOvr();
         });
     });
 </script>

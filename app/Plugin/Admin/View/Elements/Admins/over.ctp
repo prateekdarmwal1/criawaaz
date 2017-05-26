@@ -45,7 +45,6 @@
                 currentOver = over + 0.5;
             }
             $("#overs-text").val(currentOver);
-            $("#overs-text").trigger("change");
             $('#box-over').html(currentOver);
             updateScoreOvers(<?= $lastAssump['id'] ?>);
             callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);
@@ -62,7 +61,6 @@
                 balls = 0;
             }
             $("#overs-text").val(currentOver);
-            $("#overs-text").trigger("change");
             $('#box-over').html(currentOver);
             updateScoreOvers(<?= $lastAssump['id'] ?>);
             callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);  
