@@ -179,6 +179,7 @@
             }
             $("#overs-text").val(currentOver);
             $('#box-over').html(currentOver);
+            $("#overs-text").trigger('change');
             updateScoreOvers(<?= $lastAssump['id'] ?>);
             callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);  
             callAjax(UpdateWickets);
