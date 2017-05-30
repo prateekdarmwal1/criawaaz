@@ -77,7 +77,7 @@ class ScoresController  extends UserAppController {
             try {
                     $this->set("title","Home");
                     $this->loadModel("Admin.Matchschedule");
-                    $result = $this->Matchschedule->find('all', array('order' => array('id' => 'DESC')));
+                    $result = $this->Matchschedule->find('all', array('order' => array('id' => 'ASC')));
                                     //debug($result);die;
                     $this->set(array(
                         'schedule' => $result,
