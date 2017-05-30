@@ -88,17 +88,17 @@
         var ball6 = '<?= $ballDetail["ball_six"]?>';
         <?php if(!empty($ballDetail)){ ?>
             var balls = [];
-            if(ball1!=""){
+            if(ball1!="" && ball1!="-"){
                 balls = balls.concat([ball1]);
-            }if(ball2!=""){
+            }if(ball2!="" && ball2!="-"){
                 balls = balls.concat([ball2]);
-            }if(ball3!=""){
+            }if(ball3!="" && ball3!="-"){
                 balls = balls.concat([ball3]);
-            }if(ball4!=""){
+            }if(ball4!="" && ball4!="-"){
                 balls = balls.concat([ball4]);
-            }if(ball5!=""){
+            }if(ball5!="" && ball5!="-"){
                 balls = balls.concat([ball5]);
-            }if(ball6!=""){
+            }if(ball6!="" && ball6!="-"){
                 balls = balls.concat([ball6]);
             } 
         <?php } else { ?>
