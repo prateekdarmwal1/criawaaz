@@ -171,7 +171,7 @@
         } else {
             $("#match-interrupt-text").attr('disabled', true);
             $(this).val('Edit');
-            $('#ball_status').text($("#match-interrupt-text").text());
+            $('#ball_status').text($("#match-interrupt-text").val().trim());
             callAjax(UpdateWickets);
         }
     });
