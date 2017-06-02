@@ -77,7 +77,7 @@
 <script>
 
     $(function () {
-        var overOld = (isNaN($('#overs-text').val()) ? 0 : $('#overs-text').val());
+        overOld = (isNaN($('#overs-text').val()) ? 0 : $('#overs-text').val());
         var runOld = (isNaN($('#run-text').val()) ? 0 : $('#run-text').val());
         var wicktOld = (isNaN($('#wicket-text').val()) ? 0 : $('#wicket-text').val());
         var ball1 = '<?= $ballDetail["ball_one"]?>';
@@ -192,10 +192,10 @@
             var lastBall = balls[balls.length-1];
             var lastscore = []
             lastscore = lastBall.split(/[a-zA-Z]/);
-            console.log("lastScore: "+lastscore[0])
+            // console.log("lastScore: "+lastscore[0])
             var currScore = parseInt($('#run-text').val())
             currScore = currScore - (isNaN(lastscore[0]) || lastscore[0]==null || lastscore[0]=="" ? 1 : parseInt(lastscore[0])+1);
-            console.log("currScore: "+currScore);
+            // console.log("currScore: "+currScore);
             $("#run-text").val(currScore);
             $('#box-run').html(currScore);
             // return;
@@ -204,7 +204,10 @@
         })
 
         $('#overs-text').on('change',function(){
+            console.log("overOld: "+overOld);
+
             var curOver = $('#overs-text').val();
+            console.log("curOver: "+curOver);
             if(parseFloat(overOld) < parseFloat(curOver)){
                 addNextBall($('#ball_status').text());    
             }

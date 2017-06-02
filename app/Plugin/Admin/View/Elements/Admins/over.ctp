@@ -35,7 +35,6 @@
         });
         $("#overs-min").on('click', function () {
             var currentOver = $("#overs-text").val();
-            var currentOver = $("#overs-text").val();
             currentOver = (parseFloat(currentOver) - 0.1).toFixed(1);
             var over = parseInt(currentOver);
             var balls = (currentOver - over).toFixed(1);
@@ -46,6 +45,8 @@
             }
             $("#overs-text").val(currentOver);
             $('#box-over').html(currentOver);
+            overOld = currentOver;
+            $("#overs-text").trigger('change');
             updateScoreOvers(<?= $lastAssump['id'] ?>);
             callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);
             callAjax(UpdateWickets);
@@ -62,6 +63,7 @@
             }
             $("#overs-text").val(currentOver);
             $('#box-over').html(currentOver);
+            overOld = currentOver;
             updateScoreOvers(<?= $lastAssump['id'] ?>);
             callAssumptionUpdate(assumpUpdate,<?= $lastAssump['id'] ?>);  
             callAjax(UpdateWickets);
