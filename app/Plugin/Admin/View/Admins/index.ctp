@@ -91,14 +91,26 @@
                 var targetScore = (isNaN(parseInt($("#total_target_score").val())) ? "" : parseInt($("#total_target_score").val()));
             if(total_overs!="" && targetScore!=""){
                 var runsRem = parseInt(targetScore)-parseInt($('#run-text').val());
+                if(runsRem < 0){
+                    runsRem = 0;
+                }
                 var ballArr =  total_overs.split('.');
                 var totalBalls = parseInt(ballArr[0])*6+(isNaN(ballArr[1]) ? 0 : parseInt(ballArr[1]));
                 ballArr =  $('#overs-text').val().split('.');
                 var currBalls = parseInt(ballArr[0])*6+(isNaN(ballArr[1]) ? 0 : parseInt(ballArr[1]));
                 var ballsRem = parseInt(totalBalls-currBalls);
+                if(ballsRem < 0){
+                    ballsRem = 0;
+                }
                 var overRem = ballsRem/6+"."+ballsRem%6;
                 var requiredRunrate = parseFloat(parseFloat(runsRem)/parseFloat(overRem)).toFixed(1);
+                if(requiredRunrate < 0){
+                    requiredRunrate = 0;
+                }
                 var currRunrate = (parseFloat($('#run-text').val())/parseFloat($('#overs-text').val())).toFixed(1);
+                if(currRunrate < 0){
+                    currRunrate = 0;
+                }
             }
         }
         var data = {
